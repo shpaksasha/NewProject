@@ -1,14 +1,19 @@
-import React from 'react';
+import React, {Fragment} from 'react';
+import {Routes, Route} from 'react-router-dom';
+import Header from "./pages/Header/header";
+import Home from './pages/Home/home';
+import About from "./pages/About/about";
+import Faq from "./pages/Contact/contact";
 
-const App = () => (
-    <div className="App">
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A asperiores debitis dicta, distinctio
-            doloremque eveniet expedita fugit laboriosam maxime neque odio provident quo, saepe sint soluta tempora
-            velit. Ab blanditiis ea facilis id labore molestiae reprehenderit sapiente tempore! A aut beatae dolor,
-            ducimus fugiat libero numquam odit quibusdam sint ut!
-        </p>
-    </div>
-)
+const App = () => {
+    return (
+        <Routes>
+            <Header/>
+            <Route exact path='/' component={Home}/>
+            <Route exact path='/about' component={About}/>
+            <Route exact path='/faq' component={Faq}/>
+        </Routes>
+    )
+}
 
 export default App;
