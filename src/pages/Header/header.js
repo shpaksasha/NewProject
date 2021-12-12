@@ -1,15 +1,14 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import {NavLink} from "react-router-dom";
 
 const Header = () => {
     return (
         <div>
-            <Link to='/'>Home</Link>
-            <Link to='/about'>About</Link>
-            <Link to='/faq'>FAQ</Link>
+            <NavLink to='/'>Home</NavLink>
+            <NavLink to='/about'>About</NavLink>
+            <NavLink to='/faq'>FAQ</NavLink>
         </div>
     )
 }
-
 
 export default Header;

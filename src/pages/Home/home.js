@@ -1,7 +1,6 @@
 import React from 'react';
 
-const Home = () => {
-    return (
+const Home = () => (
         <div>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab alias aperiam atque blanditiis, cupiditate
             deleniti deserunt dolorem dolores eos esse facilis fugiat harum hic illum ipsum, itaque iure labore
@@ -11,7 +10,6 @@ const Home = () => {
             dolore dolorem error et in incidunt necessitatibus neque nobis odio, officiis pariatur, perferendis quis
             rerum sed similique sint tempora ut vel, veritatis! Ab at harum omnis porro tempora!
         </div>
-    );
-};
+);
 
 export default Home;

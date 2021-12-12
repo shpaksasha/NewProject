@@ -1,7 +1,6 @@
 import React from 'react';
 
-const Faq = () => {
-    return (
+const Faq = () => (
         <div>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae cum deleniti earum eos excepturi expedita,
             ipsa ipsam labore nostrum odio odit recusandae repellat sapiente temporibus unde? Alias assumenda commodi,
@@ -19,7 +18,6 @@ const Faq = () => {
             tenetur voluptas! Aperiam at impedit officiis quas voluptate. Atque aut, consequuntur eos et impedit
             laboriosam provident quae qui quisquam reprehenderit soluta temporibus voluptas voluptate.
         </div>
-    );
-};
+    )
 
 export default Faq;
