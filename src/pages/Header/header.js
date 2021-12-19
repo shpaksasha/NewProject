@@ -1,8 +1,7 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
 import {makeStyles} from "@mui/styles";
-import {AppBar, Toolbar, Typography, TextField} from "@mui/material";
-// import TextField from "@mui/material/TextField";
+import {AppBar, Toolbar, Typography} from "@mui/material";
 
 
 const useStyles = makeStyles(theme => ({
@@ -39,14 +38,14 @@ const Header = () => {
     const classes = useStyles();
     return (
         <div>
-        <AppBar position="static" className={classes.root}>
-            <Toolbar>
-                <Typography component="div"><NavLink className={classes.link} to='/'>Home</NavLink></Typography>
-                <Typography component="div"><NavLink className={classes.link} to='/about'>About</NavLink></Typography>
-                <Typography component="div"><NavLink className={classes.link} to='/faq'>FAQ</NavLink></Typography>
-            </Toolbar>
-        </AppBar>
-            <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+            <AppBar position="static" className={classes.root}>
+                <Toolbar>
+                    <Typography component="div"><NavLink className={classes.link} to='/'>Home</NavLink></Typography>
+                    <Typography component="div"><NavLink className={classes.link}
+                                                         to='/about'>About</NavLink></Typography>
+                    <Typography component="div"><NavLink className={classes.link} to='/faq'>FAQ</NavLink></Typography>
+                </Toolbar>
+            </AppBar>
         </div>
     )
 }

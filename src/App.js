@@ -5,13 +5,15 @@ import Home from './pages/Home/home';
 import About from "./pages/About/about";
 import Faq from "./pages/Faq/faq";
 import Container from '@mui/material/Container';
+import {TextField} from "@mui/material";
 
 const App = () => {
     return (
 
         <Fragment>
             <Header/>
-            <Container maxWidth="lg" sx={{backgroundColor: '#f5f5f5', height: '100vh'}}>
+            <Container maxWidth="lg" sx={{height: '100vh'}}>
+                <TextField fullWidth type='search' label="Search" variant="standard" sx={{background: '#fafafa', margin: 0, padding: 0}}/>
             <Routes>
                 <Route path='/' element={<Home/>}/>
                 <Route path='/about' element={<About/>}/>
