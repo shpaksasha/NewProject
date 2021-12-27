@@ -1,4 +1,5 @@
 import React from 'react';
+import {Post} from "../../components/Post/post";
 
 const Home = () => (
         <div>
@@ -9,6 +10,9 @@ const Home = () => (
             modi mollitia nostrum obcaecati officiis pariatur, quis tempore totam vero vitae. Consequuntur dignissimos
             dolore dolorem error et in incidunt necessitatibus neque nobis odio, officiis pariatur, perferendis quis
             rerum sed similique sint tempora ut vel, veritatis! Ab at harum omnis porro tempora!
+            <Post/>
+            <Post/>
+            <Post/>
         </div>
 );
 
