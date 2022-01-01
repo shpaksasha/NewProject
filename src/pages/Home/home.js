@@ -3,6 +3,7 @@ import {Post} from "../../components/Post/post";
 
 const Home = () => (
         <div>
+            <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab alias aperiam atque blanditiis, cupiditate
             deleniti deserunt dolorem dolores eos esse facilis fugiat harum hic illum ipsum, itaque iure labore
             laboriosam minus modi mollitia nihil nisi numquam odit officia officiis omnis optio pariatur porro quas
@@ -10,9 +11,11 @@ const Home = () => (
             modi mollitia nostrum obcaecati officiis pariatur, quis tempore totam vero vitae. Consequuntur dignissimos
             dolore dolorem error et in incidunt necessitatibus neque nobis odio, officiis pariatur, perferendis quis
             rerum sed similique sint tempora ut vel, veritatis! Ab at harum omnis porro tempora!
-            <Post/>
-            <Post/>
-            <Post/>
+               </p>
+            <Post post={{id: 1, title: 'Java Script', body: 'Hello Aleks'}}/>
+            <Post post={{id: 2, title: 'Java Script', body: 'Hello Vadym'}}/>
+            <Post post={{id: 3, title: 'Java Script', body: 'Hello Larysa'}}/>
+            <Post post={{id: 4, title: 'Java Script', body: 'Hello Vera'}}/>
         </div>
 );
 
