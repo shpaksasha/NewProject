@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 
 const About = () => {
 
-    const [like, setLikes] = useState(0)
+    const [like, setLikes] = useState(100)
     console.log(like)
     console.log(setLikes)
 
@@ -18,7 +18,6 @@ const About = () => {
     }
 
     return (
-
         <div>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ex iste quis quos? Aspernatur aut
                 consectetur
