@@ -17,6 +17,10 @@ const About = () => {
         setLikes(like - 1)
     }
 
+    const removed = () => {
+
+    };
+
     return (
         <div>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ex iste quis quos? Aspernatur aut
@@ -31,6 +35,7 @@ const About = () => {
             <h4>{like}</h4>
             <button onClick={increment}>More</button>
             <button onClick={decrement}>Less</button>
+            <button onClick={removed}>Delete</button>
 
         </div>
     )
