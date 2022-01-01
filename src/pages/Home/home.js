@@ -18,7 +18,6 @@ const useStyles = makeStyles(theme => ({
     button: {
         maxHeight: 37,
         fontFamily: 'Roboto Condensed',
-        fontStyle: 'italic',
     }
 }))
 
@@ -57,7 +56,7 @@ const Home = () => {
                         className={classes.field}
                         size='small'
                     />
-                    <Button className={classes.button} size='small' variant='contained' color='success'>Создать пост</Button>
+                    <Button className={classes.button} size='small' variant='contained' color='secondary'>Создать пост</Button>
                 </Box>
             </form>
             <div>
