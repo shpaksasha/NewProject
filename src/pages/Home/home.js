@@ -30,6 +30,12 @@ const Home = () => {
         {id: 2, title: 'React', body: 'Hello Vadym'},
         {id: 3, title: 'CSS, HTML', body: 'Hello Larysa'},
     ])
+    const [title, setTitle] = useState('hello react')
+
+    function addNewPost(event) {
+        event.preventDefault()
+        console.log(title)
+    }
 
     return (
         <div>
@@ -43,6 +49,8 @@ const Home = () => {
             <form>
                 <Box className={classes.box}>
                     <TextField
+                        value={title}
+                        onChange={event => setTitle(event.target.value)}
                         helperText='Введите описание'
                         id='demo'
                         label='Описание'
@@ -56,7 +64,8 @@ const Home = () => {
                         className={classes.field}
                         size='small'
                     />
-                    <Button className={classes.button} size='small' variant='contained' color='secondary'>Создать пост</Button>
+                    <Button onClick={addNewPost} className={classes.button} size='small' variant='contained'
+                            color='secondary'>Создать пост</Button>
                 </Box>
             </form>
             <div>
