@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {Post} from "../../components/Post/post";
 import {Button} from "@mui/material";
 import Box from '@mui/material/Box';
@@ -31,10 +31,11 @@ const Home = () => {
         {id: 3, title: 'CSS, HTML', body: 'Hello Larysa'},
     ])
     const [title, setTitle] = useState('hello react')
-
+const bodyRef = useRef()
     function addNewPost(event) {
         event.preventDefault()
         console.log(title)
+        console.log(bodyRef.current)
     }
 
     return (
@@ -58,6 +59,7 @@ const Home = () => {
                         size='small'
                     />
                     <TextField
+                        ref={bodyRef}
                         helperText='Введите название'
                         id='demo-helper'
                         label='Название'
