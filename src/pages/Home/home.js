@@ -26,9 +26,9 @@ const Home = () => {
     const classes = useStyles();
 
     const [posts, setPost] = useState([
-        {id: 1, title: 'Java Script', body: 'Hello Aleks'},
-        {id: 2, title: 'React', body: 'Hello Vadym'},
-        {id: 3, title: 'CSS, HTML', body: 'Hello Larysa'},
+        {id: 1, title: 'Java Script', denotation: 'Hello Aleks'},
+        {id: 2, title: 'React', denotation: 'Hello Vadym'},
+        {id: 3, title: 'CSS, HTML', denotation: 'Hello Larysa'},
     ])
 
     const [title, setTitle] = useState('')
@@ -48,13 +48,6 @@ const Home = () => {
 
     return (
         <div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab alias aperiam atque blanditiis,
-                cupiditate
-                deleniti deserunt dolorem dolores eos esse facilis fugiat harum hic illum ipsum, itaque iure labore
-                laboriosam minus modi mollitia nihil nisi numquam odit officia officiis omnis optio pariatur porro quas
-                ratione recusandae repellendus, ut veniam voluptatem voluptates! Amet animi cum dicta in itaque
-                laudantium
-            </p>
             <form>
                 <Box className={classes.box}>
                     <TextField
