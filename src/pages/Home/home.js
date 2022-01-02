@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useState} from 'react';
 import {Post} from "../../components/Post/post";
 import {Button} from "@mui/material";
 import Box from '@mui/material/Box';
@@ -25,17 +25,25 @@ const Home = () => {
 
     const classes = useStyles();
 
-    const [posts, setPosts] = useState([
+    const [posts, setPost] = useState([
         {id: 1, title: 'Java Script', body: 'Hello Aleks'},
         {id: 2, title: 'React', body: 'Hello Vadym'},
         {id: 3, title: 'CSS, HTML', body: 'Hello Larysa'},
     ])
-    const [title, setTitle] = useState('hello react')
-const bodyRef = useRef()
+
+    const [title, setTitle] = useState('')
+    const [denotation, setDenotation] = useState('')
+
+
     function addNewPost(event) {
         event.preventDefault()
-        console.log(title)
-        console.log(bodyRef.current)
+
+        const newPost = {
+            id: Date.now(),
+            title,
+            denotation
+        }
+        setPost([...posts, newPost])
     }
 
     return (
@@ -52,17 +60,18 @@ const bodyRef = useRef()
                     <TextField
                         value={title}
                         onChange={event => setTitle(event.target.value)}
-                        helperText='Введите описание'
-                        id='demo'
-                        label='Описание'
+                        helperText='Введите название'
+                        id='1'
+                        label='Название'
                         className={classes.field}
                         size='small'
                     />
                     <TextField
-                        ref={bodyRef}
-                        helperText='Введите название'
-                        id='demo-helper'
-                        label='Название'
+                        value={denotation}
+                        onChange={event => setDenotation(event.target.value)}
+                        helperText='Введите описание'
+                        id='2'
+                        label='Описание'
                         className={classes.field}
                         size='small'
                     />
@@ -73,8 +82,8 @@ const bodyRef = useRef()
             <div>
 
                 <h2 style={{textAlign: 'center'}}>Список постов</h2>
-                {posts.map(item =>
-                    <Post post={item} key={item.id}/>
+                {posts.map((item, index) =>
+                    <Post number={index + 1} post={item} key={item.id}/>
                 )}
             </div>
 

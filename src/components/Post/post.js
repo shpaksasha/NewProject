@@ -8,7 +8,7 @@ const Post = (props) => {
     return (
         <div className={classes.root}>
             <div className={classes.description}>
-                <h4>{props.post.id}. {props.post.title}</h4>
+                <h4>{props.number}. {props.post.title}</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At atque hic in maxime minima nulla porro
                     quibusdam, recusandae reprehenderit veniam?</p>
                 <p>{props.post.body}</p>
