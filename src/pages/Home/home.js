@@ -37,13 +37,15 @@ const Home = () => {
 
     function addNewPost(event) {
         event.preventDefault()
-
         const newPost = {
             id: Date.now(),
             title,
             denotation
         }
+
         setPost([...posts, newPost])
+        setTitle('')
+        setDenotation('')
     }
 
     return (
