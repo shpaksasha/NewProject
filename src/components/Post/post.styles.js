@@ -14,7 +14,7 @@ root: {
 description: {
 
     display: 'block',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     padding: '10px',
     alignItems: 'center',
 },

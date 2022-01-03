@@ -1,9 +1,9 @@
 import React from 'react';
 import {useStyles} from "./post.styles"
+import {Button} from "@mui/material";
 
 
 const Post = (props) => {
-    // console.log(props)
     const classes = useStyles();
     return (
         <div className={classes.root}>
@@ -14,7 +14,9 @@ const Post = (props) => {
                 <p>{props.post.denotation}</p>
             </div>
             <div className={classes.button}>
-                <button>Удалить</button>
+                <Button onClick={() => {props.remove(props.post)}} variant="contained" size="small">
+                    Удалить
+                </Button>
             </div>
         </div>
     );

@@ -15,7 +15,9 @@ const Home = () => {
     const createPost = (newPost) => {
         setPost([...posts, newPost])
     }
-
+    const removePost = (post) => {
+      setPost(posts.filter(p => p.id !== post.id))
+    }
 
     return (
         <div>
@@ -23,7 +25,7 @@ const Home = () => {
             <div>
                 <h2 style={{textAlign: 'center'}}>Список постов</h2>
                 {posts.map((item, index) =>
-                    <Post number={index + 1} post={item} key={item.id}/>
+                    <Post remove={removePost} post={item} key={item.id} number={index + 1}/>
                 )}
             </div>
         </div>
