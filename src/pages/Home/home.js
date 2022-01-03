@@ -74,14 +74,13 @@ const Home = () => {
                             color='secondary'>Создать пост</Button>
                 </Box>
             </form>
-            <div>
 
+            <div>
                 <h2 style={{textAlign: 'center'}}>Список постов</h2>
                 {posts.map((item, index) =>
                     <Post number={index + 1} post={item} key={item.id}/>
                 )}
             </div>
-
         </div>
     )
 };
