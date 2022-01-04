@@ -1,10 +1,19 @@
 import React, {useState} from 'react';
 import {Post} from "../../components/Post/post";
 import PostForm from "../../components/FormPost/postForm";
+import {makeStyles} from "@mui/styles";
 
+const useStyles = makeStyles(htem => ({
+    heading: {
+        textAlign: 'center',
+        fontFamily: 'Regular 400',
+        letterSpacing: '0.1em',
+        wordSpacing: '0.4em',
+    }
+}))
 
 const Home = () => {
-
+    const classes = useStyles()
 
     const [posts, setPost] = useState([
         {id: 1, title: 'Java Script', denotation: 'Hello Aleks'},
@@ -16,18 +25,22 @@ const Home = () => {
         setPost([...posts, newPost])
     }
     const removePost = (post) => {
-      setPost(posts.filter(p => p.id !== post.id))
+        setPost(posts.filter(elem => elem.id !== post.id))
     }
 
     return (
         <div>
             <PostForm create={createPost}/>
-            <div>
-                <h2 style={{textAlign: 'center'}}>Список постов</h2>
-                {posts.map((item, index) =>
-                    <Post remove={removePost} post={item} key={item.id} number={index + 1}/>
-                )}
-            </div>
+            {posts.length !== 0
+                ? <div>
+                    <h2 className={classes.heading}>Список постов</h2>
+                    {posts.map((item, index) =>
+                        <Post remove={removePost} post={item} key={item.id} number={index + 1}/>
+                    )}
+                </div>
+                :
+                <h2 className={classes.heading}>Посты не найдены</h2>
+            }
         </div>
     )
 };
