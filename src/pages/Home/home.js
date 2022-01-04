@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Post} from "../../components/Post/post";
 import PostForm from "../../components/FormPost/postForm";
 import {makeStyles} from "@mui/styles";
+import {TextField} from "@mui/material";
 
 const useStyles = makeStyles(htem => ({
     heading: {
@@ -30,6 +31,12 @@ const Home = () => {
 
     return (
         <div>
+            <TextField
+                id='1'
+                label="Multiline Placeholder"
+                placeholder="Placeholder"
+                multiline
+            />
             <PostForm create={createPost}/>
             {posts.length !== 0
                 ? <div>
