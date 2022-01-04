@@ -37,7 +37,9 @@ const Home = () => {
                 placeholder="Placeholder"
                 multiline
             />
+
             <PostForm create={createPost}/>
+
             {posts.length !== 0
                 ? <div>
                     <h2 className={classes.heading}>Список постов</h2>
@@ -45,8 +47,7 @@ const Home = () => {
                         <Post remove={removePost} post={item} key={item.id} number={index + 1}/>
                     )}
                 </div>
-                :
-                <h2 className={classes.heading}>Посты не найдены</h2>
+                : <h2 className={classes.heading}>Посты не найдены</h2>
             }
         </div>
     )
