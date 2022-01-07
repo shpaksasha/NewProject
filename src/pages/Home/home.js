@@ -10,6 +10,14 @@ const useStyles = makeStyles(htem => ({
         fontFamily: 'Regular 400',
         letterSpacing: '0.1em',
         wordSpacing: '0.4em',
+    },
+    root: {
+        marginTop: '30px',
+        display: 'flex',
+        justifyContent: 'center',
+    },
+    field: {
+        width: '1025px'
     }
 }))
 
@@ -22,6 +30,8 @@ const Home = () => {
         {id: 3, title: 'CSS, HTML', denotation: 'Hello Larysa'},
     ])
 
+    const [searchQuery, setSearch] = useState()
+
     const createPost = (newPost) => {
         setPost([...posts, newPost])
     }
@@ -31,12 +41,18 @@ const Home = () => {
 
     return (
         <div>
+            <div className={classes.root}>
             <TextField
+                className={classes.field}
+                helperText
+                size="small"
+                value={searchQuery}
+                onChange={event => setSearch(event.target.value)}
                 id='1'
-                label="Multiline Placeholder"
-                placeholder="Placeholder"
+                label="Search..."
                 multiline
             />
+            </div>
 
             <PostForm create={createPost}/>
 
