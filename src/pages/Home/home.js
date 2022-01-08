@@ -3,8 +3,10 @@ import {Post} from "../../components/Post/post";
 import PostForm from "../../components/FormPost/postForm";
 import {makeStyles} from "@mui/styles";
 import {TextField} from "@mui/material";
+import ModalWindow from "../../components/ModalWindow/window";
 
-const useStyles = makeStyles(htem => ({
+
+const useStyles = makeStyles(theme => ({
     heading: {
         textAlign: 'center',
         fontFamily: 'Regular 400',
@@ -30,7 +32,7 @@ const Home = () => {
         {id: 3, title: 'CSS, HTML', denotation: 'Hello Larysa'},
     ])
 
-    const [searchQuery, setSearch] = useState()
+    const [search, setSearch] = useState('')
 
     const createPost = (newPost) => {
         setPost([...posts, newPost])
@@ -40,31 +42,35 @@ const Home = () => {
     }
 
     return (
+
         <div>
             <div className={classes.root}>
-            <TextField
-                className={classes.field}
-                helperText
-                size="small"
-                value={searchQuery}
-                onChange={event => setSearch(event.target.value)}
-                id='1'
-                label="Search..."
-                multiline
-            />
+                <TextField
+                    className={classes.field}
+                    helperText
+                    size="small"
+                    value={search}
+                    onChange={event => setSearch(event.target.value)}
+                    id='1'
+                    label="Search..."
+                    multiline/>
             </div>
 
             <PostForm create={createPost}/>
-
-            {posts.length !== 0
-                ? <div>
-                    <h2 className={classes.heading}>Список постов</h2>
-                    {posts.map((item, index) =>
-                        <Post remove={removePost} post={item} key={item.id} number={index + 1}/>
-                    )}
-                </div>
-                : <h2 className={classes.heading}>Посты не найдены</h2>
-            }
+            <ModalWindow>
+                Hello World !!!!!!!!!!!!!!!!!!!!!!!!
+            </ModalWindow>
+            <div>
+                {posts.length !== 0
+                    ? <div>
+                        <h2 className={classes.heading}>Список постов</h2>
+                        {posts.map((item, index) =>
+                            <Post remove={removePost} post={item} key={item.id} number={index + 1}/>
+                        )}
+                    </div>
+                    : <h2 className={classes.heading}>Посты не найдены</h2>
+                }
+            </div>
         </div>
     )
 };
