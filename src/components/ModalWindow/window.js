@@ -2,14 +2,14 @@ import React from 'react';
 import {makeStyles} from "@mui/styles";
 
 const useStyles = makeStyles(theme => ({
-    myModal: {
+    mainModal: {
         position: 'fixed',
         display: 'none',
         top: 0,
         bottom: 0,
         left: 0,
         right: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        backgroundColor: 'rgba(0, 0, 0, 0.7)'
         // backgroundColor: 'black',
         // opacity: 0.5
     },
@@ -26,11 +26,16 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-const ModalWindow = ({children}) => {
+const ModalWindow = ({children, visible, setVisible}) => {
     const classes = useStyles()
+    const rootClasses = [classes.mainModal]
+
+    if (visible === true) {
+        rootClasses.push(classes.modalActive)
+    }
 
     return (
-        <div className={`${classes.myModal} ${classes.modalActive}`}>
+        <div className={`${classes.mainModal} ${classes.modalActive}`}>
             <div className={classes.modalContent}>
                 {children}
             </div>

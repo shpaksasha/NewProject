@@ -56,10 +56,10 @@ const Home = () => {
                     multiline/>
             </div>
 
-            <PostForm create={createPost}/>
-            <ModalWindow>
-                Hello World !!!!!!!!!!!!!!!!!!!!!!!!
+            <ModalWindow visible={true}>
+                <PostForm create={createPost}/>
             </ModalWindow>
+
             <div>
                 {posts.length !== 0
                     ? <div>
