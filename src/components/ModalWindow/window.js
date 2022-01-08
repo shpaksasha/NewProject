@@ -3,8 +3,9 @@ import {makeStyles} from "@mui/styles";
 
 const useStyles = makeStyles(theme => ({
     mainModal: {
-        position: 'fixed',
+        zIndex: 1,
         display: 'none',
+        position: 'fixed',
         top: 0,
         bottom: 0,
         left: 0,
@@ -28,6 +29,7 @@ const useStyles = makeStyles(theme => ({
 
 const ModalWindow = ({children, visible, setVisible}) => {
     const classes = useStyles()
+
     const rootClasses = [classes.mainModal]
 
     if (visible === true) {
@@ -35,8 +37,8 @@ const ModalWindow = ({children, visible, setVisible}) => {
     }
 
     return (
-        <div className={`${classes.mainModal} ${classes.modalActive}`}>
-            <div className={classes.modalContent}>
+        <div className={rootClasses.join(' ')} onClick={() => setVisible(false)}>
+            <div className={classes.modalContent} onClick={event => event.stopPropagation()}>
                 {children}
             </div>
         </div>

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Post} from "../../components/Post/post";
 import PostForm from "../../components/FormPost/postForm";
 import {makeStyles} from "@mui/styles";
-import {TextField} from "@mui/material";
+import {Button, TextField} from "@mui/material";
 import ModalWindow from "../../components/ModalWindow/window";
 
 
@@ -33,10 +33,14 @@ const Home = () => {
     ])
 
     const [search, setSearch] = useState('')
+    const [modal, setModal] = useState(false)
+
 
     const createPost = (newPost) => {
         setPost([...posts, newPost])
+        setModal(false)
     }
+
     const removePost = (post) => {
         setPost(posts.filter(elem => elem.id !== post.id))
     }
@@ -55,8 +59,9 @@ const Home = () => {
                     label="Search..."
                     multiline/>
             </div>
+            <Button variant='contained' onClick={()=> setModal(true)}>Создать пост</Button>
 
-            <ModalWindow visible={true}>
+            <ModalWindow visible={modal} setVisible={setModal}>
                 <PostForm create={createPost}/>
             </ModalWindow>
 
