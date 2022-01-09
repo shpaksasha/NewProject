@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import {Post} from "../../components/Post/post";
 import PostForm from "../../components/FormPost/postForm";
 import {makeStyles} from "@mui/styles";
-import {Button, TextField} from "@mui/material";
+import {Button} from "@mui/material";
 import ModalWindow from "../../components/ModalWindow/window";
+import {Search} from "../../components/Search/search";
 
 
 const useStyles = makeStyles(theme => ({
@@ -13,13 +14,10 @@ const useStyles = makeStyles(theme => ({
         letterSpacing: '0.1em',
         wordSpacing: '0.4em',
     },
-    root: {
-        marginTop: '30px',
-        display: 'flex',
-        justifyContent: 'center',
-    },
-    field: {
-        width: '1025px'
+
+    mainButton: {
+        marginTop: '20px',
+        textAlign: 'center',
     }
 }))
 
@@ -32,7 +30,7 @@ const Home = () => {
         {id: 3, title: 'CSS, HTML', denotation: 'Hello Larysa'},
     ])
 
-    const [search, setSearch] = useState('')
+
     const [modal, setModal] = useState(false)
 
 
@@ -48,18 +46,9 @@ const Home = () => {
     return (
 
         <div>
-            <div className={classes.root}>
-                <TextField
-                    className={classes.field}
-                    helperText
-                    size="small"
-                    value={search}
-                    onChange={event => setSearch(event.target.value)}
-                    id='1'
-                    label="Search..."
-                    multiline/>
-            </div>
-            <Button variant='contained' onClick={()=> setModal(true)}>Создать пост</Button>
+            <Search/>
+            <div className={classes.mainButton}>
+            <Button variant='contained' onClick={()=> setModal(true)}>Создать пост</Button></div>
 
             <ModalWindow visible={modal} setVisible={setModal}>
                 <PostForm create={createPost}/>
