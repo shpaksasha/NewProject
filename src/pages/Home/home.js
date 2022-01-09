@@ -64,7 +64,8 @@ const Home = () => {
                                 <CSSTransition
                                     key={item.id}
                                     timeout={500}
-                                    classNames="post">
+                                    classNames="post"
+                                >
                                     <Post remove={removePost} post={item} number={index + 1}/>
                                 </CSSTransition>
                             )}
