@@ -5,6 +5,7 @@ import {makeStyles} from "@mui/styles";
 import {Button} from "@mui/material";
 import ModalWindow from "../../components/ModalWindow/window";
 import {Search} from "../../components/Search/search";
+import {CSSTransition, TransitionGroup} from "react-transition-group";
 
 
 const useStyles = makeStyles(theme => ({
@@ -48,7 +49,7 @@ const Home = () => {
         <div>
             <Search/>
             <div className={classes.mainButton}>
-            <Button variant='contained' onClick={()=> setModal(true)}>Создать пост</Button></div>
+                <Button variant='contained' onClick={() => setModal(true)}>Создать пост</Button></div>
 
             <ModalWindow visible={modal} setVisible={setModal}>
                 <PostForm create={createPost}/>
@@ -57,10 +58,17 @@ const Home = () => {
             <div>
                 {posts.length !== 0
                     ? <div>
-                        <h2 className={classes.heading}>Список постов</h2>
-                        {posts.map((item, index) =>
-                            <Post remove={removePost} post={item} key={item.id} number={index + 1}/>
-                        )}
+                        <TransitionGroup>
+                            <h2 className={classes.heading}>Список постов</h2>
+                            {posts.map((item, index) =>
+                                <CSSTransition
+                                    key={item.id}
+                                    timeout={500}
+                                    classNames="post">
+                                    <Post remove={removePost} post={item} number={index + 1}/>
+                                </CSSTransition>
+                            )}
+                        </TransitionGroup>
                     </div>
                     : <h2 className={classes.heading}>Посты не найдены</h2>
                 }
