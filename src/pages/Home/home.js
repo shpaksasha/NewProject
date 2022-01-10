@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Post} from "../../components/Post/post";
 import PostForm from "../../components/FormPost/postForm";
 import {makeStyles} from "@mui/styles";
@@ -6,6 +6,7 @@ import {Button} from "@mui/material";
 import ModalWindow from "../../components/ModalWindow/window";
 import {Search} from "../../components/Search/search";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
+import axios from "axios";
 
 
 const useStyles = makeStyles(theme => ({
@@ -31,9 +32,17 @@ const Home = () => {
         {id: 3, title: 'CSS, HTML', denotation: 'Hello Larysa'},
     ])
 
+    useEffect(()=> {
+        fetchPost()
+    },[])
 
     const [modal, setModal] = useState(false)
 
+async function fetchPost() {
+    const response = await axios.get('https://jsonplaceholder.typicode.com/posts')
+    // console.log(response.data)
+    setPost(response.data)
+}
 
     const createPost = (newPost) => {
         setPost([...posts, newPost])
@@ -49,6 +58,7 @@ const Home = () => {
         <div>
             <Search/>
             <div className={classes.mainButton}>
+                <button onClick={fetchPost}>Get</button>
                 <Button variant='contained' onClick={() => setModal(true)}>Создать пост</Button></div>
 
             <ModalWindow visible={modal} setVisible={setModal}>
@@ -63,7 +73,7 @@ const Home = () => {
                             {posts.map((item, index) =>
                                 <CSSTransition
                                     key={item.id}
-                                    timeout={500}
+                                    timeout={900}
                                     classNames="post"
                                 >
                                     <Post remove={removePost} post={item} number={index + 1}/>
