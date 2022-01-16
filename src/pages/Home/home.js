@@ -6,6 +6,7 @@ import {Button} from "@mui/material";
 import ModalWindow from "../../components/ModalWindow/window";
 import {Search} from "../../components/Search/search";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
+import GetAppIcon from '@mui/icons-material/GetApp';
 import axios from "axios";
 
 
@@ -18,8 +19,9 @@ const useStyles = makeStyles(theme => ({
     },
 
     mainButton: {
-        marginTop: '20px',
+        marginTop: '25px',
         textAlign: 'center',
+        alignItems: 'space-around'
     }
 }))
 
@@ -38,11 +40,11 @@ const Home = () => {
 
     const [modal, setModal] = useState(false)
 
-async function fetchPost() {
-    const response = await axios.get('https://jsonplaceholder.typicode.com/posts')
-    // console.log(response.data)
-    setPost(response.data)
-}
+    async function fetchPost() {
+        const response = await axios.get('https://jsonplaceholder.typicode.com/posts')
+        // console.log(response.data)
+        setPost(response.data)
+    }
 
     const createPost = (newPost) => {
         setPost([...posts, newPost])
@@ -58,8 +60,9 @@ async function fetchPost() {
         <div>
             <Search/>
             <div className={classes.mainButton}>
-                <button onClick={fetchPost}>Get</button>
+                {/*<Button onClick={fetchPost} variant="contained" endIcon={<GetAppIcon/>}>Get Post</Button>*/}
                 <Button variant='contained' onClick={() => setModal(true)}>Создать пост</Button></div>
+
 
             <ModalWindow visible={modal} setVisible={setModal}>
                 <PostForm create={createPost}/>
