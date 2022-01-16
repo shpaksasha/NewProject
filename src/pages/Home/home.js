@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         margin: '0 auto',
         justifyContent: 'center',
-        marginTop: '250px',
+        marginTop: '220px',
     },
 }))
 
@@ -45,10 +45,13 @@ const Home = () => {
 
     async function fetchPost() {
         setLoading(true)
-        const response = await axios.get('https://jsonplaceholder.typicode.com/posts')
-        // console.log(response.data)
-        setPost(response.data)
-        setLoading(false)
+        setTimeout(async() =>{
+            const response = await axios.get('https://jsonplaceholder.typicode.com/posts')
+            // console.log(response.data)
+            setPost(response.data)
+            setLoading(false)
+        },2000)
+
     }
 
     const createPost = (newPost) => {
