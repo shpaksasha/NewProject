@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         margin: '0 auto',
         justifyContent: 'center',
-        marginTop: '220px',
+        marginTop: '230px',
     },
 }))
 
@@ -46,7 +46,7 @@ const Home = () => {
     async function fetchPost() {
         setLoading(true)
         setTimeout(async() =>{
-            const response = await axios.get('https://jsonplaceholder.typicode.com/posts')
+            const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=20')
             // console.log(response.data)
             setPost(response.data)
             setLoading(false)
