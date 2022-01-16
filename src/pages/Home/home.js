@@ -83,7 +83,7 @@ const Home = () => {
                                 {posts.map((item, index) =>
                                     <CSSTransition
                                         key={item.id}
-                                        timeout={900}
+                                        timeout={500}
                                         classNames="post"
                                     >
                                         <Post remove={removePost} post={item} number={index + 1}/>

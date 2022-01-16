@@ -13,12 +13,12 @@ body {
 }
 .post-enter-active {
     transform: translateX(0px);
-    transition: all 900ms ease-in;
+    transition: all 0.5s ease-in;
 }
 .post-exit {
     opacity: 1;
 }
 .post-exit-active {
     transform: translateX(-550px);
-    transition: all 900ms ease-in;
+    transition: all 0.5s ease-out;
 }
