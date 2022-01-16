@@ -2,12 +2,11 @@ import React, {useEffect, useState} from 'react';
 import {Post} from "../../components/Post/post";
 import PostForm from "../../components/FormPost/postForm";
 import {makeStyles} from "@mui/styles";
-import {Button} from "@mui/material";
+import {Button, CircularProgress} from "@mui/material";
 import ModalWindow from "../../components/ModalWindow/window";
 import {Search} from "../../components/Search/search";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 import axios from "axios";
-import CircularProgress from '@mui/material/CircularProgress';
 
 
 const useStyles = makeStyles(theme => ({
@@ -23,11 +22,13 @@ const useStyles = makeStyles(theme => ({
         textAlign: 'center',
         alignItems: 'space-around'
     },
-    circle: {
-        width: 1000,
-        height: 1000,
-        alignItems: 'center'
-    }
+
+    loading: {
+        display: 'flex',
+        margin: '0 auto',
+        justifyContent: 'center',
+        marginTop: '250px',
+    },
 }))
 
 const Home = () => {
@@ -73,9 +74,8 @@ const Home = () => {
             </ModalWindow>
 
             {postLoading
-                ? <CircularProgress disableShrink className={classes.circle} />
-                :
-                <div>
+                ? <div className={classes.loading}><CircularProgress disableShrink size={55}/></div>
+                : <div>
                     {posts.length !== 0
                         ? <div>
                             <TransitionGroup>
