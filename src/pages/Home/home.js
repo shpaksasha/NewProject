@@ -6,8 +6,8 @@ import {Button} from "@mui/material";
 import ModalWindow from "../../components/ModalWindow/window";
 import {Search} from "../../components/Search/search";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
-import GetAppIcon from '@mui/icons-material/GetApp';
 import axios from "axios";
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 const useStyles = makeStyles(theme => ({
@@ -22,6 +22,11 @@ const useStyles = makeStyles(theme => ({
         marginTop: '25px',
         textAlign: 'center',
         alignItems: 'space-around'
+    },
+    circle: {
+        width: 1000,
+        height: 1000,
+        alignItems: 'center'
     }
 }))
 
@@ -29,17 +34,20 @@ const Home = () => {
     const classes = useStyles()
 
     const [posts, setPost] = useState([])
+    const [postLoading, setLoading] = useState(false)
 
-    useEffect(()=> {
+    useEffect(() => {
         fetchPost()
-    },[])
+    }, [])
 
     const [modal, setModal] = useState(false)
 
     async function fetchPost() {
+        setLoading(true)
         const response = await axios.get('https://jsonplaceholder.typicode.com/posts')
         // console.log(response.data)
         setPost(response.data)
+        setLoading(false)
     }
 
     const createPost = (newPost) => {
@@ -64,25 +72,29 @@ const Home = () => {
                 <PostForm create={createPost}/>
             </ModalWindow>
 
-            <div>
-                {posts.length !== 0
-                    ? <div>
-                        <TransitionGroup>
-                            <h2 className={classes.heading}>Список постов</h2>
-                            {posts.map((item, index) =>
-                                <CSSTransition
-                                    key={item.id}
-                                    timeout={900}
-                                    classNames="post"
-                                >
-                                    <Post remove={removePost} post={item} number={index + 1}/>
-                                </CSSTransition>
-                            )}
-                        </TransitionGroup>
-                    </div>
-                    : <h2 className={classes.heading}>Посты не найдены</h2>
-                }
-            </div>
+            {postLoading
+                ? <CircularProgress disableShrink className={classes.circle} />
+                :
+                <div>
+                    {posts.length !== 0
+                        ? <div>
+                            <TransitionGroup>
+                                <h2 className={classes.heading}>Список постов</h2>
+                                {posts.map((item, index) =>
+                                    <CSSTransition
+                                        key={item.id}
+                                        timeout={900}
+                                        classNames="post"
+                                    >
+                                        <Post remove={removePost} post={item} number={index + 1}/>
+                                    </CSSTransition>
+                                )}
+                            </TransitionGroup>
+                        </div>
+                        : <h2 className={classes.heading}>Посты не найдены</h2>
+                    }
+                </div>
+            }
         </div>
     )
 };
