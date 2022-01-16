@@ -28,11 +28,7 @@ const useStyles = makeStyles(theme => ({
 const Home = () => {
     const classes = useStyles()
 
-    const [posts, setPost] = useState([
-        {id: 1, title: 'Java Script', denotation: 'Hello Aleks'},
-        {id: 2, title: 'React', denotation: 'Hello Vadym'},
-        {id: 3, title: 'CSS, HTML', denotation: 'Hello Larysa'},
-    ])
+    const [posts, setPost] = useState([])
 
     useEffect(()=> {
         fetchPost()
