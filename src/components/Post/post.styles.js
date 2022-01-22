@@ -7,21 +7,23 @@ root: {
     display: 'block',
     marginTop: '20px',
     border: '2px solid black',
-    alignItems: 'center'
-
+    alignItems: 'center',
 },
 
 description: {
-
     display: 'block',
     justifyContent: 'space-around',
     padding: '10px',
     alignItems: 'center',
 },
 button: {
+    margin: '10px',
     display: 'block',
     position: 'absolute',
     top: '50%',
     right: 0,
-}
+},
+    des: {
+    justifyContent: 'center'
+    }
 }))

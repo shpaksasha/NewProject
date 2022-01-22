@@ -9,7 +9,7 @@ const Post = (props) => {
         <div className={classes.root}>
             <div className={classes.description}>
                 <h4>{props.number}. {props.post.title}</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At atque hic in maxime minima nulla porro
+                <p className={classes.des}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At atque hic in maxime minima nulla porro
                     quibusdam, recusandae reprehenderit veniam?</p>
                 <p>{props.post.denotation}</p>
             </div>

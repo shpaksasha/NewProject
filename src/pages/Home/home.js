@@ -45,13 +45,10 @@ const Home = () => {
 
     async function fetchPost() {
         setLoading(true)
-        setTimeout(async() =>{
             const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=20')
             // console.log(response.data)
             setPost(response.data)
             setLoading(false)
-        },2000)
-
     }
 
     const createPost = (newPost) => {
