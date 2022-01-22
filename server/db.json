@@ -1,0 +1,83 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "firstName": "Animesh",
+      "lastName": "Roy",
+      "email": "ani@gmail.com",
+      "age": 21,
+      "companyId": "1"
+    },
+    {
+      "id": "2",
+      "firstName": "Rahul",
+      "lastName": "Sharma",
+      "email": "rahul@gmail.com",
+      "age": 20,
+      "companyId": "1"
+    },
+    {
+      "id": "3",
+      "firstName": "Mark",
+      "lastName": "Tyson",
+      "email": "lipon21@gmail.com",
+      "age": 22,
+      "companyId": "1"
+    }
+  ],
+
+  "companies": [
+    {
+      "id": "1",
+      "name": "Apple",
+      "logo": "https://coresites-cdn-adm.imgix.net/dirt_new/wp-content/uploads/2017/03/Mick-Hannah-World-Champ-2013-on-Polygon-Collosus-DH-Prototype.-Credit-to-Supplied-Gameplan-Media.jpg?fit=crop&w=1250&h=833",
+      "description": "Apple Inc. is an American multinational technology company headquartered in Cupertino, California, that designs, develops, and sells consumer electronics, computer software, and online services. It is considered one of the Big Four technology companies, alongside Amazon, Google, and Microsoft."
+    },
+    {
+      "id": "2",
+      "name": "Microsoft",
+      "logo": "https://scott-extreme.com.ua/image/cache/catalog/blog-images/downhill-article-800x600.jpg",
+      "description": "Microsoft Corporation is an American multinational technology company with headquarters in Redmond, Washington. It develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services."
+    },
+    {
+      "id": "3",
+      "name": "Google",
+      "logo": "https://img.desktopwallpapers.ru/sport/pics/wide/1920x1200/fcadb8f33aa032a032afde79605b3d76.jpg",
+      "description": "Google Inc., American search engine company, founded in 1998 by Sergey Brin and Larry Page, that is a subsidiary of the holding company Alphabet Inc. More than 70 percent of worldwide online search requests are handled by Google, placing it at the heart of most Internet users' experience."
+    }
+  ],
+
+  "contacts": [
+    {
+      "name": "Animesh Roy",
+      "country": "India",
+      "phone": "2322984953",
+      "id": 1
+    },
+    {
+      "name": "Aakash Choudhury",
+      "country": "USA",
+      "phone": "4930384837",
+      "id": 2
+    },
+    {
+      "name": "Arun Dey",
+      "country": "Brazil",
+      "phone": "5748493812",
+      "id": 3
+    }
+  ],
+
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "some comment",
+      "postId": 1
+    }
+  ]
+}
