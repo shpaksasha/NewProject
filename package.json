@@ -21,7 +21,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "concurrently \"npm begin\" \"npm run server\"",
+    "start": "concurrently \"npm run begin\" \"npm run server\"",
     "begin": "react-scripts start",
     "server": "json-server -w server/db.json -p 3001",
     "build": "react-scripts build",
