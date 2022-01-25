@@ -39,11 +39,10 @@ const useStyles = makeStyles(theme => ({
 const Header = () => {
     const classes = useStyles();
     return (
-        <div>
             <AppBar position='static'>
             <Toolbar className={classes.root}>
                 <Typography className={classes.icon}>
-                    <Icon className={{height: '42px', width: '42px'}}>
+                    <Icon>
                         <AccountCircleIcon/>
                         <NavLink className={classes.eye} to='/'>
 
@@ -61,7 +60,7 @@ const Header = () => {
                     </NavLink>
                 </Typography>
                 <Typography>
-                    <NavLink className={classes.link} activeClassName={classes.linkActive} to='/post'>
+                    <NavLink className={classes.link} activeClassName={classes.linkActive} to='/faq'>
                         Authorization
                     </NavLink>
                 </Typography>
@@ -77,15 +76,6 @@ const Header = () => {
                 </Typography>
             </Toolbar>
             </AppBar>
-            {/*<AppBar position="static" className={classes.root}>*/}
-            {/*    <Toolbar>*/}
-            {/*        <Typography component="div"><NavLink className={classes.link} to='/'>Home</NavLink></Typography>*/}
-            {/*        <Typography component="div"><NavLink className={classes.link}*/}
-            {/*                                             to='/about'>About</NavLink></Typography>*/}
-            {/*        <Typography component="div"><NavLink className={classes.link} to='/faq'>FAQ</NavLink></Typography>*/}
-            {/*    </Toolbar>*/}
-            {/*</AppBar>*/}
-        </div>
     )
 }
 
