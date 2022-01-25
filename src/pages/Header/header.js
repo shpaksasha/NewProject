@@ -2,7 +2,7 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 import {makeStyles} from "@mui/styles";
 import {AppBar, Icon, Toolbar, Typography} from "@mui/material";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import {AccountCircleIcon} from '@mui/icons-material';
 
 const useStyles = makeStyles(theme => ({
     root: {
