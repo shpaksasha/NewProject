@@ -1,51 +1,90 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
 import {makeStyles} from "@mui/styles";
-import {AppBar, Toolbar, Typography} from "@mui/material";
-
+import {AppBar, Icon, Toolbar, Typography} from "@mui/material";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
-        margin: '0rem',
+        width: '100%',
         display: 'flex',
-        alignItems: 'center',
+        backgroundColor: '#eceff1',
+        padding: '0rem 6.25rem',
+        justifyContent: 'space-between',
+        boxSizing: 'border-box',
+        position: 'sticky',
+        top: 0,
+        zIndex: 1
+    },
+        link: {
+            position: 'relative',
+            textDecoration: 'none',
+            color: '#828282',
+            fontSize: '16px',
+            lineHeight: '24px',
+            fontFamily: 'Roboto, sans-serif'
+        },
 
-    },
-    link: {
-        padding: '0px 40px',
-        textAlign: 'center',
-        position: 'relative',
-        textDecoration: 'none',
-        color: '#ffeb3b',
-        fontSize: '25px',
-        // lineHeight: '20px',
-        fontFamily: 'Roboto, sans-serif',
-        // [theme.breakpoints.down('sm')]: {
-        //     fontSize: '12px',
-        //     lineHeight: '18px',
-        // },
-        // [theme.breakpoints.down('xs')]: {
-        //     justifyContent: 'space-between',
-        //     fontSize: '25px',
-        //     lineHeight: '45px',
-        // }
-    },
-}));
+        linkActive: {
+            paddingBottom: '5px',
+            borderBottom: '2px solid #37474f',
+            color: '#37474f',
+            fontSize: '16px',
+            fontFamily: 'Roboto, sans-serif'
+        }
+    }))
 
 
 const Header = () => {
     const classes = useStyles();
     return (
         <div>
-            <AppBar position="static" className={classes.root}>
-                <Toolbar>
-                    <Typography component="div"><NavLink className={classes.link} to='/'>Home</NavLink></Typography>
-                    <Typography component="div"><NavLink className={classes.link}
-                                                         to='/about'>About</NavLink></Typography>
-                    <Typography component="div"><NavLink className={classes.link} to='/faq'>FAQ</NavLink></Typography>
-                </Toolbar>
+            <AppBar position='static'>
+            <Toolbar className={classes.root}>
+                <Typography className={classes.icon}>
+                    <Icon className={{height: '42px', width: '42px'}}>
+                        <AccountCircleIcon/>
+                        <NavLink className={classes.eye} to='/'>
+
+                        </NavLink>
+                    </Icon>
+                </Typography>
+                <Typography>
+                    <NavLink exact={true} className={classes.link} activeClassName={classes.linkActive} to='/'>
+                        Home
+                    </NavLink>
+                </Typography>
+                <Typography>
+                    <NavLink className={classes.link} activeClassName={classes.linkActive} to='/about'>
+                        About
+                    </NavLink>
+                </Typography>
+                <Typography>
+                    <NavLink className={classes.link} activeClassName={classes.linkActive} to='/post'>
+                        Authorization
+                    </NavLink>
+                </Typography>
+                <Typography>
+                    <NavLink className={classes.link} activeClassName={classes.linkActive} to='/server'>
+                        Contacts
+                    </NavLink>
+                </Typography>
+                <Typography>
+                    <NavLink className={classes.link} activeClassName={classes.linkActive} to='/weather'>
+                        FAQ
+                    </NavLink>
+                </Typography>
+            </Toolbar>
             </AppBar>
+            {/*<AppBar position="static" className={classes.root}>*/}
+            {/*    <Toolbar>*/}
+            {/*        <Typography component="div"><NavLink className={classes.link} to='/'>Home</NavLink></Typography>*/}
+            {/*        <Typography component="div"><NavLink className={classes.link}*/}
+            {/*                                             to='/about'>About</NavLink></Typography>*/}
+            {/*        <Typography component="div"><NavLink className={classes.link} to='/faq'>FAQ</NavLink></Typography>*/}
+            {/*    </Toolbar>*/}
+            {/*</AppBar>*/}
         </div>
     )
 }
