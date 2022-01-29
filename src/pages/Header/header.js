@@ -1,21 +1,27 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
 import {makeStyles} from "@mui/styles";
 import {AppBar, Toolbar, Typography} from "@mui/material";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
+
 const useStyles = makeStyles(theme => ({
     root: {
-        flexGrow: 1,
-        width: '100%',
-        display: 'flex',
-        backgroundColor: '#eceff1',
-        padding: '0rem 6.25rem',
-        justifyContent: 'space-around',
+        top: 0,
         boxSizing: 'border-box',
         position: 'sticky',
-        top: 0,
-        zIndex: 1
+        display: 'flex',
+        width: '100%',
+        flexGrow: 1,
+        zIndex: 1,
+    },
+    appBar: {
+        backgroundColor: '#b8dfdf',
+        padding: '0rem 6.25rem',
+        justifyContent: 'space-around',
+    },
+    shadow: {
+        boxShadow: '0px 8px 10px 10px rgba(0,0,0,0.30)'
     },
     link: {
         position: 'relative',
@@ -23,12 +29,14 @@ const useStyles = makeStyles(theme => ({
         color: '#0a3f89',
         fontSize: '17px',
         lineHeight: '24px',
-        fontFamily: 'Roboto, sans-serif'
+        fontFamily: 'Roboto, sans-serif',
     },
 
     linkActive: {
-        // paddingBottom: '5px',
-        // borderBottom: '3px solid black',
+        textDecoration: 'none',
+        padding: '3px',
+        backgroundColor: '#0a3f89',
+        borderRadius: '5px',
         color: '#ffffff',
         fontSize: '17px',
         fontFamily: 'Roboto, sans-serif'
@@ -43,17 +51,31 @@ const useStyles = makeStyles(theme => ({
         width: '100%',
         color: '#1b397a',
         fontSize: '14px',
-        fontFamily: 'Lato, sans-serif',
+        fontFamily: 'Late, sans-serif',
         paddingLeft: '32px',
     },
 }))
 
 
 const Header = () => {
+
+    const [isOffset, setOffset] = useState(window.pageYOffset);
+
+    const scrollFunction = () => {
+        setOffset(window.pageYOffset)
+    }
+
+    useEffect(() => {
+      window.addEventListener('scroll', scrollFunction)
+        return () => {
+           window.removeEventListener('scroll',scrollFunction);
+        }
+    },[scrollFunction])
+
     const classes = useStyles();
     return (
-        <AppBar position='static'>
-            <Toolbar className={classes.root}>
+        <AppBar className={`${classes.root} ${isOffset > 0 ? classes.shadow : null}`}>
+            <Toolbar className={classes.appBar}>
                 <NavLink to='/'>
                     <Typography className={classes.icon}>
                         <AccountCircleIcon style={{fontSize: '31px'}}/>
@@ -61,27 +83,27 @@ const Header = () => {
                     </Typography>
                 </NavLink>
                 <Typography>
-                    <NavLink className={classes.link} activeClassName={classes.linkActive} to='/'>
+                    <NavLink  className={({isActive}) => (isActive ? classes.linkActive : classes.link)} to='/'>
                         Home
                     </NavLink>
                 </Typography>
                 <Typography>
-                    <NavLink className={classes.link} activeClassName={classes.linkActive} to='/about'>
+                    <NavLink className={({isActive}) => (isActive ? classes.linkActive : classes.link)} to='/about'>
                         About
                     </NavLink>
                 </Typography>
                 <Typography>
-                    <NavLink className={classes.link} activeClassName={classes.linkActive} to='/faq'>
+                    <NavLink className={({isActive}) => (isActive ? classes.linkActive : classes.link)} to='/faq'>
                         Authorization
                     </NavLink>
                 </Typography>
                 <Typography>
-                    <NavLink className={classes.link} activeClassName={classes.linkActive} to='/server'>
+                    <NavLink className={({isActive}) => (isActive ? classes.linkActive : classes.link)} to='/server'>
                         Contacts
                     </NavLink>
                 </Typography>
                 <Typography>
-                    <NavLink className={classes.link} activeClassName={classes.linkActive} to='/weather'>
+                    <NavLink className={({isActive}) => (isActive ? classes.linkActive : classes.link)} to='/weather'>
                         FAQ
                     </NavLink>
                 </Typography>
