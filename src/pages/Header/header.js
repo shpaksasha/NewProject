@@ -1,8 +1,8 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
 import {makeStyles} from "@mui/styles";
-import {AppBar, Icon, Toolbar, Typography} from "@mui/material";
-import {AccountCircleIcon} from '@mui/icons-material';
+import {AppBar, Toolbar, Typography} from "@mui/material";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -11,46 +11,57 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         backgroundColor: '#eceff1',
         padding: '0rem 6.25rem',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         boxSizing: 'border-box',
         position: 'sticky',
         top: 0,
         zIndex: 1
     },
-        link: {
-            position: 'relative',
-            textDecoration: 'none',
-            color: '#828282',
-            fontSize: '16px',
-            lineHeight: '24px',
-            fontFamily: 'Roboto, sans-serif'
-        },
+    link: {
+        position: 'relative',
+        textDecoration: 'none',
+        color: '#0a3f89',
+        fontSize: '17px',
+        lineHeight: '24px',
+        fontFamily: 'Roboto, sans-serif'
+    },
 
-        linkActive: {
-            paddingBottom: '5px',
-            borderBottom: '2px solid #37474f',
-            color: '#37474f',
-            fontSize: '16px',
-            fontFamily: 'Roboto, sans-serif'
-        }
-    }))
+    linkActive: {
+        // paddingBottom: '5px',
+        // borderBottom: '3px solid black',
+        color: '#ffffff',
+        fontSize: '17px',
+        fontFamily: 'Roboto, sans-serif'
+    },
+    icon: {
+        position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
+    },
+    account: {
+        position: 'absolute',
+        width: '100%',
+        color: '#1b397a',
+        fontSize: '14px',
+        fontFamily: 'Lato, sans-serif',
+        paddingLeft: '32px',
+    },
+}))
 
 
 const Header = () => {
     const classes = useStyles();
     return (
-            <AppBar position='static'>
+        <AppBar position='static'>
             <Toolbar className={classes.root}>
-                <Typography className={classes.icon}>
-                    <Icon>
-                        <AccountCircleIcon/>
-                        <NavLink className={classes.eye} to='/'>
-
-                        </NavLink>
-                    </Icon>
-                </Typography>
+                <NavLink to='/'>
+                    <Typography className={classes.icon}>
+                        <AccountCircleIcon style={{fontSize: '31px'}}/>
+                        <span className={classes.account}><b>Account</b></span>
+                    </Typography>
+                </NavLink>
                 <Typography>
-                    <NavLink exact={true} className={classes.link} activeClassName={classes.linkActive} to='/'>
+                    <NavLink className={classes.link} activeClassName={classes.linkActive} to='/'>
                         Home
                     </NavLink>
                 </Typography>
@@ -75,7 +86,7 @@ const Header = () => {
                     </NavLink>
                 </Typography>
             </Toolbar>
-            </AppBar>
+        </AppBar>
     )
 }
 
