@@ -7,15 +7,16 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const useStyles = makeStyles(theme => ({
     root: {
-        top: 0,
         boxSizing: 'border-box',
         position: 'sticky',
         display: 'flex',
         width: '100%',
         flexGrow: 1,
-        zIndex: 1,
+        zIndex: 0,
+        top: 0,
     },
     appBar: {
+        position: 'absolute',
         backgroundColor: '#b8dfdf',
         padding: '0rem 6.25rem',
         justifyContent: 'space-around',
