@@ -12,17 +12,16 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         width: '100%',
         flexGrow: 1,
-        zIndex: 0,
+        zIndex: 1,
         top: 0,
     },
     appBar: {
-        position: 'absolute',
         backgroundColor: '#b8dfdf',
         padding: '0rem 6.25rem',
         justifyContent: 'space-around',
     },
     shadow: {
-        boxShadow: '0px 8px 10px 10px rgba(0,0,0,0.30)'
+        boxShadow: '0px 12px 10px 10px rgba(0,0,0,0.30)'
     },
     link: {
         position: 'relative',
@@ -55,6 +54,9 @@ const useStyles = makeStyles(theme => ({
         fontFamily: 'Late, sans-serif',
         paddingLeft: '32px',
     },
+    navLink: {
+        marginRight: '255px',
+    }
 }))
 
 
@@ -64,6 +66,7 @@ const Header = () => {
 
     const scrollFunction = () => {
         setOffset(window.pageYOffset)
+        console.log(isOffset)
     }
 
     useEffect(() => {
@@ -77,7 +80,7 @@ const Header = () => {
     return (
         <AppBar className={`${classes.root} ${isOffset > 0 ? classes.shadow : null}`}>
             <Toolbar className={classes.appBar}>
-                <NavLink to='/'>
+                <NavLink className={classes.navLink} to='/'>
                     <Typography className={classes.icon}>
                         <AccountCircleIcon style={{fontSize: '31px'}}/>
                         <span className={classes.account}><b>Account</b></span>

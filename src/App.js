@@ -12,7 +12,7 @@ const App = () => {
 
         <Fragment>
             <Header/>
-            <Container maxWidth="lg" sx={{height: '100vh'}}>
+            <Container maxWidth="lg" sx={{height: '100vh', marginTop: '95px'}}>
             <Routes>
                 <Route path='/' element={<Home/>}/>
                 <Route path='/about' element={<About/>}/>
