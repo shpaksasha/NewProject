@@ -97,8 +97,8 @@ const Header = () => {
                     </NavLink>
                 </Typography>
                 <Typography>
-                    <NavLink className={({isActive}) => (isActive ? classes.linkActive : classes.link)} to='/faq'>
-                        Authorization
+                    <NavLink className={({isActive}) => (isActive ? classes.linkActive : classes.link)} to='/book'>
+                        Catalog
                     </NavLink>
                 </Typography>
                 <Typography>

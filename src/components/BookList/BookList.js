@@ -1,5 +1,5 @@
 import React from 'react';
-import BookItems from './BookItems';
+import BookItem from './BookItem';
 
 const BookList = (props) => {
 
@@ -8,7 +8,7 @@ const BookList = (props) => {
     return (
         <div>
             {goods.map((item) => (
-                <BookItems key={item.id} setOrder={setOrder} {...item}/>
+                <BookItem key={item.id} setOrder={setOrder} {...item}/>
             ))}
         </div>
     );
