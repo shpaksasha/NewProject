@@ -1,10 +1,11 @@
 import React from 'react';
+import {Grid} from "@mui/material";
 
 const BookItem = (props) => {
     const {name, price, setOrder} = props;
 
     return (
-        <div>
+        <Grid item sm={12} md={4}>
             <img
                 src={`https://via.placeholder.com/300x150.png?text=${name.slice(0, 10)}`}
                 alt={name}/>
@@ -20,7 +21,7 @@ const BookItem = (props) => {
                 }>Купить
                 </button>
             </div>
-        </div>
+        </Grid>
     );
 };
 
