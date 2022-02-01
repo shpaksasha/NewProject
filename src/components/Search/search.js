@@ -7,9 +7,6 @@ const useStyles = makeStyles(theme => ({
         marginTop: '30px',
         display: 'flex',
         justifyContent: 'center',
-    },
-    field: {
-        width: '1025px'
     }
 }))
 
@@ -22,14 +19,15 @@ const Search = () => {
         <div>
             <div className={classes.root}>
                 <TextField
-                    className={classes.field}
-                    helperText
-                    size="small"
+                    variant='outlined'
+                    type='search'
+                    fullWidth
+                    size='small'
+                    label='Search...'
+                    autoComplete
                     value={search}
                     onChange={event => setSearch(event.target.value)}
-                    id='1'
-                    label="Search..."
-                    multiline/>
+                />
             </div>
         </div>
     );

@@ -16,7 +16,6 @@ const useStyles = makeStyles(theme => ({
         top: 0,
     },
     appBar: {
-
         backgroundColor: '#b8dfdf',
         padding: '0rem 6.25rem',
         justifyContent: 'space-around',
@@ -63,23 +62,23 @@ const useStyles = makeStyles(theme => ({
 
 const Header = () => {
 
-    const [isOffset, setOffset] = useState(window.pageYOffset);
+    const [isOffset, setOffset] = useState(window.scrollY);
 
     const scrollFunction = () => {
-        setOffset(window.pageYOffset)
+        setOffset(window.scrollY)
         console.log(isOffset)
     }
 
     useEffect(() => {
-      window.addEventListener('scroll', scrollFunction)
+        window.addEventListener('scroll', scrollFunction)
         return () => {
-           window.removeEventListener('scroll',scrollFunction);
+            window.removeEventListener('scroll', scrollFunction);
         }
-    },[scrollFunction])
+    }, [scrollFunction])
 
     const classes = useStyles();
     return (
-        <AppBar className={`${classes.root} ${isOffset > 0 ? classes.shadow : null}`}>
+        <AppBar className={`${classes.root} ${isOffset >0 ? classes.shadow : null}`}>
             <Toolbar className={classes.appBar}>
                 <NavLink className={classes.navLink} to='/'>
                     <Typography className={classes.icon}>
@@ -88,7 +87,7 @@ const Header = () => {
                     </Typography>
                 </NavLink>
                 <Typography>
-                    <NavLink  className={({isActive}) => (isActive ? classes.linkActive : classes.link)} to='/'>
+                    <NavLink className={({isActive}) => (isActive ? classes.linkActive : classes.link)} to='/'>
                         Home
                     </NavLink>
                 </Typography>
