@@ -1,10 +1,18 @@
 import React from 'react';
+import {TextField} from "@mui/material";
 
 const SearchBook = (props) => {
 
     const { onChange, value } = props;
 
-    return <input type='search' value={value} onChange={onChange} />;
+    return <TextField
+        variant='outlined'
+        type='search'
+        label='Search...'
+        fullWidth
+        size='small'
+        value={value}
+        onChange={onChange}/>;
 };
 
 export default SearchBook;
