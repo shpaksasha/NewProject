@@ -16,6 +16,7 @@ const useStyles = makeStyles(theme => ({
         top: 0,
     },
     appBar: {
+
         backgroundColor: '#b8dfdf',
         padding: '0rem 6.25rem',
         justifyContent: 'space-around',

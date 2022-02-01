@@ -3,7 +3,7 @@ import BookList from '../../components/BookList/BookList';
 import BasketList from '../../components/BasketList/BasketList';
 import SearchBook from '../../components/SearchBook/SearchBook';
 
-import {books} from '../../../server/books'
+import {books} from '../../data/books'
 
 
 const Books = () => {
