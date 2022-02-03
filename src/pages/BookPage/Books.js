@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import BookList from '../../components/BookList/BookList';
 import BasketList from '../../components/BasketList/BasketList';
 import SearchBook from '../../components/SearchBook/SearchBook';
-
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import {books} from '../../data/books'
 import Basket from "../../components/BasketList/Basket";
+import {Button} from "@mui/material";
 
 
 const Books = () => {
@@ -71,18 +72,12 @@ const Books = () => {
     return (
         <div>
             <div>
-                <SearchBook
-                    value={search}
-                    onChange={handleChange}
-                />
-                <BookList
-                    goods={products}
-                    setOrder={addToOrder}
-                />
-                <BasketList
-                    order={order}
-                    setOrder={removeFromOrder}
-                />
+                <SearchBook value={search} onChange={handleChange}/>
+                <BookList goods={products} setOrder={addToOrder}/>
+                <BasketList order={order} setOrder={removeFromOrder}/>
+                <Button variant='outlined' endIcon={<ShoppingCartIcon/>}>
+                    Корзина
+                </Button>
             </div>
             <Basket openCard={isCardOpen} closeCard={() => setCardOpen(false)}/>
         </div>
