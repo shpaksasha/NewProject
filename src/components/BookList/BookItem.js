@@ -1,7 +1,17 @@
 import React from 'react';
 import {Button, Card, CardActions, CardContent, CardMedia, Grid, Typography} from '@mui/material';
+import {makeStyles} from "@mui/styles";
+
+const useStyles = makeStyles(theme => ({
+    action: {
+        display: "flex",
+        bottom: 0,
+        left: 0
+    }
+}))
 
 const BookItem = (props) => {
+    const classes = useStyles();
     const {name, price, poster, setOrder} = props;
 
     return (
@@ -18,7 +28,7 @@ const BookItem = (props) => {
                     <Typography variant='body1'>Цена: {price} грн.</Typography>
                 </CardContent>
 
-                <CardActions>
+                <CardActions className={classes.action}>
                     <Button variant='contained'
                             size='small'
                             onClick={() =>

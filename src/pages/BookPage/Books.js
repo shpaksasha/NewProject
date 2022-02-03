@@ -4,12 +4,15 @@ import BasketList from '../../components/BasketList/BasketList';
 import SearchBook from '../../components/SearchBook/SearchBook';
 
 import {books} from '../../data/books'
+import Basket from "../../components/BasketList/Basket";
 
 
 const Books = () => {
     const [order, setOrder] = useState([]);
     const [search, setSearch] = useState('');
     const [products, setProducts] = useState(books);
+    const [isCardOpen, setCardOpen] = useState(false)
+
 
     const handleChange = (event) => {
         if (!event.target.value) {
@@ -66,8 +69,8 @@ const Books = () => {
     };
 
     return (
-        <div className='App'>
-            <div className='container'>
+        <div>
+            <div>
                 <SearchBook
                     value={search}
                     onChange={handleChange}
@@ -81,6 +84,7 @@ const Books = () => {
                     setOrder={removeFromOrder}
                 />
             </div>
+            <Basket openCard={isCardOpen} closeCard={() => setCardOpen(false)}/>
         </div>
     );
 };
