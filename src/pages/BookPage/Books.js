@@ -14,6 +14,9 @@ const Books = () => {
     const [products, setProducts] = useState(books);
     const [isCardOpen, setCardOpen] = useState(false)
 
+function handleCard () {
+    setCardOpen(true)
+}
 
     const handleChange = (event) => {
         if (!event.target.value) {
@@ -75,7 +78,7 @@ const Books = () => {
                 <SearchBook value={search} onChange={handleChange}/>
                 <BookList goods={products} setOrder={addToOrder}/>
                 <BasketList order={order} setOrder={removeFromOrder}/>
-                <Button variant='outlined' endIcon={<ShoppingCartIcon/>}>
+                <Button onClick={handleCard} variant='outlined' endIcon={<ShoppingCartIcon/>}>
                     Корзина
                 </Button>
             </div>
