@@ -3,12 +3,12 @@ import {IconButton, ListItem, Typography} from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 
 const BasketItem = (props) => {
-
     const {name, price, quantity, removeMerchandise, id} = props
+
     return (
         <ListItem>
-            <Typography variant='body1'>
-                {name} {price}грн. x{quantity}
+            <Typography variant='body2'>
+                {name} {price} грн. x {quantity}
             </Typography>
             <IconButton
                 onClick={() => removeMerchandise(id)}

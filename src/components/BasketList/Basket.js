@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
 
 const Basket = (props) => {
     const classes = useStyles()
-    const {openCard, closeCard, merchandise = [], removeMerchandise} = props
+    const {openCard, closeCard, merchandise, removeMerchandise} = props
 
     return (
         <Drawer anchor='left' open={openCard} onClose={closeCard}>
@@ -25,25 +25,24 @@ const Basket = (props) => {
                     </ListItemIcon>
                 </ListItem>
                 <Divider/>
-                {!merchandise.length ? (
-                    <ListItem>Корзина пуста</ListItem>)
+                {!merchandise.length ?
+                    <ListItem>Корзина пуста</ListItem>
                     :
-                    (
-                    <>
+                    <div>
                         {merchandise.map(item => <BasketItem {...item} key={item.name}
-                                                            removeMerchandise={removeMerchandise}/>)}
+                                                             removeMerchandise={removeMerchandise}/>)}
                         <Divider/>
                         <ListItem>
-                            <Typography sx={{fontWeight: 700}}>
+                            <Typography sx={{fontWeight: 600}}>
                                 Общая стоимость:{' '}
                                 {merchandise.reduce((reducer, item) => {
-                                    return reducer + item.price * item.quantity;
+                                    return reducer + item.price * item.quantity
                                 }, 0)}{' '}
                                 грн.
                             </Typography>
                         </ListItem>
-                    </>
-                    )}
+                    </div>
+                }
             </List>
         </Drawer>
     );
