@@ -1,26 +1,21 @@
 import React, {useState} from 'react';
 import BookList from '../../components/BookList/BookList';
-import BasketList from '../../components/BasketList/BasketList';
 import SearchBook from '../../components/SearchBook/SearchBook';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import {books} from '../../data/books'
+import {goods} from '../../data/goods'
 import Basket from "../../components/BasketList/Basket";
 import {Button} from "@mui/material";
 
 
 const Books = () => {
-    const [order, setOrder] = useState([]);
+    const [merchandise, setMerchandise] = useState([]);
     const [search, setSearch] = useState('');
-    const [products, setProducts] = useState(books);
+    const [products, setProducts] = useState(goods);
     const [isCardOpen, setCardOpen] = useState(false)
-
-function handleCard () {
-    setCardOpen(true)
-}
 
     const handleChange = (event) => {
         if (!event.target.value) {
-            setProducts(books);
+            setProducts(goods);
             setSearch('');
             return;
         }
@@ -28,22 +23,22 @@ function handleCard () {
         setSearch(event.target.value);
 
         setProducts(
-            products.filter((books) =>
-                books.name.toLowerCase().includes(event.target.value.toLowerCase())
+            products.filter(goods =>
+                goods.name.toLowerCase().includes(event.target.value.toLowerCase())
             ))
     };
 
     const addToOrder = (goodsItem) => {
         let quantity = 1;
 
-        const indexInOrder = order.findIndex(
+        const indexInOrder = merchandise.findIndex(
             (item) => item.id === goodsItem.id
         );
 
         if (indexInOrder > -1) {
-            quantity = order[indexInOrder].quantity + 1;
+            quantity = merchandise[indexInOrder].quantity + 1;
 
-            setOrder(order.map((item) => {
+            setMerchandise(merchandise.map((item) => {
                     if (item.id !== goodsItem.id) return item;
 
                     return {
@@ -55,8 +50,8 @@ function handleCard () {
                 }),
             );
         } else {
-            setOrder([
-                    ...order,
+            setMerchandise([
+                    ...merchandise,
                     {
                         id: goodsItem.id,
                         name: goodsItem.name,
@@ -68,21 +63,25 @@ function handleCard () {
         }
     };
 
-    const removeFromOrder = (goodsItem) => {
-        setOrder(order.filter((item) => item.id !== goodsItem));
+    const removeMerchandise = (goodsItem) => {
+        setMerchandise(merchandise.filter((item) => item.id !== goodsItem));
+    };
+
+    const handleCard = () => {
+        setCardOpen(true)
     };
 
     return (
         <div>
             <div>
                 <SearchBook value={search} onChange={handleChange}/>
-                <BookList goods={products} setOrder={addToOrder}/>
-                <BasketList order={order} setOrder={removeFromOrder}/>
+                <BookList goods={products} setMerchandise={addToOrder}/>
                 <Button onClick={handleCard} variant='outlined' endIcon={<ShoppingCartIcon/>}>
                     Корзина
                 </Button>
             </div>
-            <Basket openCard={isCardOpen} closeCard={() => setCardOpen(false)}/>
+            <Basket openCard={isCardOpen} closeCard={() => setCardOpen(false)} merchandise={merchandise}
+                    removeMerchandise={removeMerchandise}/>
         </div>
     );
 };

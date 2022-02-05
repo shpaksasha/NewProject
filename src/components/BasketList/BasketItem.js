@@ -1,15 +1,21 @@
 import React from "react";
+import {IconButton, ListItem, Typography} from "@mui/material";
+import CloseIcon from '@mui/icons-material/Close';
 
 const BasketItem = (props) => {
+
+    const {name, price, quantity, removeMerchandise, id} = props
     return (
-        <li>
-            {props.name}-{props.price}грн. x{props.quantity}
-            <button
-                onClick={() => props.setOrder(props.id)}
+        <ListItem>
+            <Typography variant='body1'>
+                {name} {price}грн. x{quantity}
+            </Typography>
+            <IconButton
+                onClick={() => removeMerchandise(id)}
             >
-                Удалить из корзины
-            </button>
-        </li>
+               <CloseIcon/>
+            </IconButton>
+        </ListItem>
     );
 };
 

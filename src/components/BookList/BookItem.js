@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
 
 const BookItem = (props) => {
     const classes = useStyles();
-    const {name, price, poster, setOrder} = props;
+    const {name, price, poster, setMerchandise} = props;
 
     return (
         <Grid item sm={12} md={4}>
@@ -32,7 +32,7 @@ const BookItem = (props) => {
                     <Button variant='contained'
                             size='small'
                             onClick={() =>
-                                setOrder({
+                                setMerchandise({
                                     id: props.id,
                                     name: props.name,
                                     price: props.price,
