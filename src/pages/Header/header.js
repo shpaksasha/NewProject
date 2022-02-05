@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
         justifyContent: 'space-around',
     },
     shadow: {
-        boxShadow: '0px 12px 10px 10px rgba(0,0,0,0.30)'
+        boxShadow: '0px 3px 6px 3px rgba(0,0,0,0.25)'
     },
     link: {
         position: 'relative',
@@ -97,7 +97,7 @@ const Header = () => {
                     </NavLink>
                 </Typography>
                 <Typography>
-                    <NavLink className={({isActive}) => (isActive ? classes.linkActive : classes.link)} to='/book'>
+                    <NavLink className={({isActive}) => (isActive ? classes.linkActive : classes.link)} to='/catalog'>
                         Catalog
                     </NavLink>
                 </Typography>

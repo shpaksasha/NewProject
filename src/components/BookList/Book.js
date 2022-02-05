@@ -2,7 +2,7 @@ import React from 'react';
 import BookItem from './BookItem';
 import {Grid} from "@mui/material";
 
-const BookList = (props) => {
+const Book = (props) => {
 
     const {goods, setMerchandise} = props;
 
@@ -15,4 +15,4 @@ const BookList = (props) => {
     );
 };
 
-export default BookList;
+export default Book;

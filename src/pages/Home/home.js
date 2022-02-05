@@ -4,7 +4,7 @@ import PostForm from "../../components/FormPost/postForm";
 import {makeStyles} from "@mui/styles";
 import {Button, CircularProgress} from "@mui/material";
 import ModalWindow from "../../components/ModalWindow/window";
-import {Search} from "../../components/Search/search";
+import {Search} from "../../components/SearchHome/Search";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 import axios from "axios";
 

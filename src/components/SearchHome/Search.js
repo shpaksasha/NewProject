@@ -19,6 +19,7 @@ const Search = () => {
         <div>
             <div className={classes.root}>
                 <TextField
+                    sx={{zIndex: 0}}
                     variant='outlined'
                     type='search'
                     fullWidth

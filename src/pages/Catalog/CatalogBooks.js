@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
-import BookList from '../../components/BookList/BookList';
-import SearchBook from '../../components/SearchBook/SearchBook';
+import BookList from '../../components/BookList/Book';
+import SearchBook from '../../components/SearchCatalog/SearchBook';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import {goods} from '../../data/goods'
 import Basket from "../../components/BasketList/Basket";
 import {Button} from "@mui/material";
 
-
-const Books = () => {
+const CatalogBooks = () => {
     const [merchandise, setMerchandise] = useState([]);
     const [search, setSearch] = useState('');
     const [products, setProducts] = useState(goods);
@@ -86,4 +85,4 @@ const Books = () => {
     );
 };
 
-export default Books;
+export default CatalogBooks;
