@@ -27,7 +27,7 @@ const CatalogBooks = () => {
             ))
     };
 
-    const addToOrder = (goodsItem) => {
+    const addOrder = (goodsItem) => {
         let quantity = 1;
 
         const indexInOrder = merchandise.findIndex(
@@ -74,7 +74,7 @@ const CatalogBooks = () => {
         <div>
             <div>
                 <SearchBook value={search} onChange={handleChange}/>
-                <BookList goods={products} setMerchandise={addToOrder}/>
+                <BookList goods={products} setMerchandise={addOrder}/>
                 <Button onClick={handleCard} variant='outlined' endIcon={<ShoppingCartIcon/>}>
                     Корзина
                 </Button>
