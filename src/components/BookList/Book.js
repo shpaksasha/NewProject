@@ -7,7 +7,7 @@ const Book = (props) => {
     const {goods, setMerchandise} = props;
 
     return (
-        <Grid container spacing={1}>
+        <Grid container spacing={2}>
             {goods.map((item) => (
                 <BookItem key={item.id} setMerchandise={setMerchandise} {...item}/>
             ))}

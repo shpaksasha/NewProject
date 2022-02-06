@@ -6,7 +6,7 @@ const SearchBook = (props) => {
     const { onChange, value } = props;
 
     return <TextField
-        sx={{zIndex: 0}}
+        sx={{zIndex: 0, mt: 4, mb: 3}}
         variant='outlined'
         type='search'
         label='Search...'

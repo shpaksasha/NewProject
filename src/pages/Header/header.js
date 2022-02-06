@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
         justifyContent: 'space-around',
     },
     shadow: {
-        boxShadow: '0px 6px 6px 6px rgba(0,0,0,0.25)'
+        boxShadow: '0px 3px 6px 3px rgba(0,0,0,0.25)'
     },
     link: {
         position: 'relative',
@@ -62,19 +62,19 @@ const useStyles = makeStyles(theme => ({
 
 const Header = () => {
 
-    // const [isOffset, setOffset] = useState(window.scrollY);
-    //
-    // const scrollFunction = () => {
-    //     setOffset(window.scrollY)
-    //     console.log(isOffset)
-    // }
-    //
-    // useEffect(() => {
-    //     window.addEventListener('scroll', scrollFunction)
-    //     return () => {
-    //         window.removeEventListener('scroll', scrollFunction);
-    //     }
-    // }, [scrollFunction])
+    const [isOffset, setOffset] = useState(window.scrollY);
+
+    const scrollFunction = () => {
+        setOffset(window.scrollY)
+        console.log(isOffset)
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', scrollFunction)
+        return () => {
+            window.removeEventListener('scroll', scrollFunction);
+        }
+    }, [scrollFunction])
 
     const classes = useStyles();
     return (

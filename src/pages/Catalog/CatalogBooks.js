@@ -1,12 +1,23 @@
 import React, {useState} from 'react';
-import BookList from '../../components/BookList/Book';
 import SearchBook from '../../components/SearchCatalog/SearchBook';
+import Book from '../../components/BookList/Book';
+import Basket from '../../components/BasketList/Basket';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import {Button} from '@mui/material';
 import {goods} from '../../data/goods'
-import Basket from "../../components/BasketList/Basket";
-import {Button} from "@mui/material";
+import {makeStyles} from "@mui/styles";
+
+const useStyle = makeStyles(theme => ({
+    basket: {
+        margin: '30px 0',
+        display: 'flex',
+        justifyContent: 'flex-end'
+    }
+}))
+
 
 const CatalogBooks = () => {
+    const classes = useStyle()
     const [merchandise, setMerchandise] = useState([]);
     const [search, setSearch] = useState('');
     const [products, setProducts] = useState(goods);
@@ -74,10 +85,12 @@ const CatalogBooks = () => {
         <div>
             <div>
                 <SearchBook value={search} onChange={handleChange}/>
-                <BookList goods={products} setMerchandise={addOrder}/>
+                <Book goods={products} setMerchandise={addOrder}/>
+                <div className={classes.basket}>
                 <Button onClick={handleCard} variant='outlined' endIcon={<ShoppingCartIcon/>}>
                     Корзина
                 </Button>
+                </div>
             </div>
             <Basket openCard={isCardOpen} closeCard={() => setCardOpen(false)} merchandise={merchandise}
                     removeMerchandise={removeMerchandise}/>
