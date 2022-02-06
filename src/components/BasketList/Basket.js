@@ -6,8 +6,15 @@ import BasketItem from "./BasketItem";
 
 const useStyles = makeStyles(theme => ({
     itemText: {
-        textAlign: 'center',
+        marginLeft: '35px',
+        display: 'flex',
+        justifyContent: 'center',
         color: '#ffffff',
+    },
+    empty: {
+        marginTop: 310,
+        left: 60,
+        fontWeight: 500
     }
 }))
 
@@ -16,17 +23,17 @@ const Basket = (props) => {
     const {openCard, closeCard, merchandise, removeMerchandise} = props
 
     return (
-        <Drawer anchor='left' open={openCard} onClose={closeCard}>
+        <Drawer sx={{boxSizing: 'borderBox'}} anchor='left' open={openCard} onClose={closeCard}>
             <List sx={{width: 275}}>
                 <ListItem sx={{backgroundColor: '#039be5'}}>
                     <ListItemText className={classes.itemText} primary='Корзина'/>
                     <ListItemIcon>
-                        <LocalGroceryStoreIcon sx={{color: '#ffffff'}}/>
+                        <LocalGroceryStoreIcon sx={{color: '#ffffff', flexGrow: 1}}/>
                     </ListItemIcon>
                 </ListItem>
                 <Divider/>
                 {!merchandise.length ?
-                    <ListItem>Корзина пуста</ListItem>
+                    <ListItem className={classes.empty}>Корзина пуста</ListItem>
                     :
                     <div>
                         {merchandise.map(item => <BasketItem {...item} key={item.name}
@@ -37,8 +44,7 @@ const Basket = (props) => {
                                 Общая стоимость:{' '}
                                 {merchandise.reduce((reducer, item) => {
                                     return reducer + item.price * item.quantity
-                                }, 0)}{' '}
-                                грн.
+                                }, 0)}{' '}грн.
                             </Typography>
                         </ListItem>
                     </div>

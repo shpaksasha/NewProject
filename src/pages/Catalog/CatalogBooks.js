@@ -87,9 +87,9 @@ const CatalogBooks = () => {
                 <SearchBook value={search} onChange={handleChange}/>
                 <Book goods={products} setMerchandise={addOrder}/>
                 <div className={classes.basket}>
-                <Button onClick={handleCard} variant='outlined' endIcon={<ShoppingCartIcon/>}>
-                    Корзина
-                </Button>
+                    <Button onClick={handleCard} variant='outlined' endIcon={<ShoppingCartIcon/>}>
+                        Корзина
+                    </Button>
                 </div>
             </div>
             <Basket openCard={isCardOpen} closeCard={() => setCardOpen(false)} merchandise={merchandise}

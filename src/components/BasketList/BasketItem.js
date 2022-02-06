@@ -7,13 +7,13 @@ const BasketItem = (props) => {
 
     return (
         <ListItem>
-            <Typography variant='body2'>
+            <Typography sx={{flexGrow: 1}} variant='body2'>
                 {name} {price} грн. x {quantity}
             </Typography>
             <IconButton
                 onClick={() => removeMerchandise(id)}
             >
-               <CloseIcon/>
+               <CloseIcon />
             </IconButton>
         </ListItem>
     );
