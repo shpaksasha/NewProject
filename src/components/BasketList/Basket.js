@@ -23,7 +23,7 @@ const Basket = (props) => {
     const {openCard, closeCard, merchandise, removeMerchandise} = props
 
     return (
-        <Drawer sx={{boxSizing: 'borderBox'}} anchor='left' open={openCard} onClose={closeCard}>
+        <Drawer anchor='left' open={openCard} onClose={closeCard}>
             <List sx={{width: 275}}>
                 <ListItem sx={{backgroundColor: '#039be5'}}>
                     <ListItemText className={classes.itemText} primary='Корзина'/>
