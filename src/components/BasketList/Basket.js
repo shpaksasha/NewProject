@@ -12,8 +12,10 @@ const useStyles = makeStyles(theme => ({
         color: '#ffffff',
     },
     empty: {
+        textAlign: 'center',
+        display: 'block',
+        justifyContent: 'center',
         marginTop: 310,
-        left: 60,
         fontWeight: 500
     }
 }))
@@ -33,7 +35,7 @@ const Basket = (props) => {
                 </ListItem>
                 <Divider/>
                 {!merchandise.length ?
-                    <ListItem className={classes.empty}>Корзина пуста</ListItem>
+                    <div className={classes.empty}><ListItem>Корзина пуста</ListItem></div>
                     :
                     <div>
                         {merchandise.map(item => <BasketItem {...item} key={item.name}
