@@ -59,7 +59,6 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-
 const Header = () => {
 
     const [isOffset, setOffset] = useState(window.scrollY);
