@@ -6,15 +6,12 @@ import BasketItem from "./BasketItem";
 
 const useStyles = makeStyles(theme => ({
     itemText: {
-        marginLeft: '35px',
+        marginLeft: '52px',
         display: 'flex',
         justifyContent: 'center',
         color: '#ffffff',
     },
     empty: {
-        textAlign: 'center',
-        display: 'block',
-        justifyContent: 'center',
         marginTop: 310,
         fontWeight: 500
     }
@@ -35,7 +32,7 @@ const Basket = (props) => {
                 </ListItem>
                 <Divider/>
                 {!merchandise.length ?
-                    <div className={classes.empty}><ListItem>Корзина пуста</ListItem></div>
+                    <div className={classes.empty}><ListItem sx={{justifyContent: 'center'}}>Корзина пуста</ListItem></div>
                     :
                     <div>
                         {merchandise.map(item => <BasketItem {...item} key={item.name}
