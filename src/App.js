@@ -5,6 +5,7 @@ import Home from './pages/Home/home';
 import About from './pages/About/about';
 import Container from '@mui/material/Container';
 import CatalogBooks from './pages/Catalog/CatalogBooks';
+import Form from "./pages/Form/Form";
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
                 <Route path='/' element={<Home/>}/>
                 <Route path='/about' element={<About/>}/>
                 <Route path='/catalog' element={<CatalogBooks/>}/>
+                <Route path='/form' element={<Form/>}/>
             </Routes>
             </Container>
         </Fragment>
