@@ -62,7 +62,7 @@ const Form = () => {
     const classes = useStyles()
     const {
         register,
-        formState: {errors, isValid},
+        formState: {errors},
         handleSubmit,
         reset
     } = useForm({mode: 'onBlur'})
