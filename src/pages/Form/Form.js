@@ -10,9 +10,9 @@ const useStyles = makeStyles(theme => ({
         justifyContent: 'center',
         alignItems: 'center',
         margin: '0 auto',
-        backgroundColor: '#4f9384',
+        backgroundColor: '#f0bfb5',
         height: 640,
-        width: 430,
+        maxWidth: 440,
         borderRadius: '8px'
     },
     form: {
@@ -43,14 +43,26 @@ const useStyles = makeStyles(theme => ({
         textIndent: '0.9em',
         fontSize: '0.8em',
     },
-
+    button: {
+        backgroundColor: '#e54f4f',
+        display: 'block',
+        margin: '0 auto',
+        border: 'none',
+        textTransform: 'uppercase',
+        padding: '13px 24px',
+        borderRadius: '5px',
+        cursor: 'pointer',
+        '&:hover': {
+            backgroundColor: '#d85d5d',
+        }
+    }
 }))
 
 const Form = () => {
     const classes = useStyles()
     const {
         register,
-        formState: {errors},
+        formState: {errors, isValid},
         handleSubmit,
         reset
     } = useForm({mode: 'onBlur'})
@@ -76,7 +88,8 @@ const Form = () => {
                                    }
                                })}
                         />
-                        <div className={classes.error}>{errors?.firstName && <span>{errors?.firstName?.message || 'Error!'}</span>}</div>
+                        <div className={classes.error}>{errors?.firstName &&
+                            <span>{errors?.firstName?.message || 'Error!'}</span>}</div>
                     </Box>
                     <Box sx={{mb: 9, maxHeight: '25px'}}>
                         <label className={classes.label}>Прізвище</label>
@@ -89,7 +102,8 @@ const Form = () => {
                                    }
                                })}
                         />
-                        <div className={classes.error}>{errors?.lastName && <span>{errors?.lastName?.message || 'Error!'}</span>}</div>
+                        <div className={classes.error}>{errors?.lastName &&
+                            <span>{errors?.lastName?.message || 'Error!'}</span>}</div>
                     </Box>
                     <Box sx={{maxHeight: '25px'}}>
                         <label className={classes.label}>Телефон</label>
@@ -102,9 +116,12 @@ const Form = () => {
                                    }
                                })}
                         />
-                        <div className={classes.error}>{errors?.telephone && <span>{errors?.telephone?.message || 'Error!'}</span>}</div>
+                        <div className={classes.error}>{errors?.telephone &&
+                            <span>{errors?.telephone?.message || 'Error!'}</span>}</div>
                     </Box>
-                    <input type='submit'/>
+                    <Box sx={{mt: 14}}>
+                        <button className={classes.button} type='submit' disabled={!isValid}>Відправити</button>
+                    </Box>
                 </form>
             </div>
         </>
