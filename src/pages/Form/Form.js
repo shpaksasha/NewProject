@@ -120,7 +120,7 @@ const Form = () => {
                             <span>{errors?.telephone?.message || 'Error!'}</span>}</div>
                     </Box>
                     <Box sx={{mt: 14}}>
-                        <button className={classes.button} type='submit' disabled={!isValid}>Відправити</button>
+                        <button className={classes.button} type='submit'>Відправити</button>
                     </Box>
                 </form>
             </div>
