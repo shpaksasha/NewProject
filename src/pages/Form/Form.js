@@ -55,6 +55,10 @@ const useStyles = makeStyles(theme => ({
         '&:hover': {
             backgroundColor: '#d85d5d',
         }
+    },
+    hook: {
+        textAlign: 'center',
+        margin: '35px'
     }
 }))
 
@@ -74,7 +78,7 @@ const Form = () => {
 
     return (
         <>
-            <h1>React-Hook-Form</h1>
+            <h1 className={classes.hook}>React-Hook-Form</h1>
             <div className={classes.root}>
                 <form className={classes.form} onSubmit={handleSubmit(submit)}>
                     <Box sx={{mb: 9, maxHeight: '25px'}}>
@@ -84,7 +88,7 @@ const Form = () => {
                                    required: 'Заповніть поле',
                                    maxLength: {
                                        value: 15,
-                                       message: 'максимальна кіл-ть. симвовів 15'
+                                       message: 'Максимальна кіл-ть. симвовів 15'
                                    }
                                })}
                         />
@@ -98,7 +102,7 @@ const Form = () => {
                                    required: 'Заповніть поле',
                                    maxLength: {
                                        value: 15,
-                                       message: 'максимальна кіл-ть. симвовів 15'
+                                       message: 'Максимальна кіл-ть. симвовів 15'
                                    }
                                })}
                         />
