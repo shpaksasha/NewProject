@@ -112,12 +112,11 @@ const Form = () => {
                                    required: 'Введіть номер телефону',
                                    maxLength: {
                                        value: 10,
-                                       message: 'не вірний телефон'
+                                       message: 'Не вірний телефон'
                                    }
                                })}
                         />
-                        <div className={classes.error}>{errors?.telephone &&
-                            <span>{errors?.telephone?.message || 'Error!'}</span>}</div>
+                        <div className={classes.error}>{errors?.telephone && <span>{errors?.telephone?.message || 'Error!'}</span>}</div>
                     </Box>
                     <Box sx={{mt: 14}}>
                         <button className={classes.button} type='submit'>Відправити</button>
