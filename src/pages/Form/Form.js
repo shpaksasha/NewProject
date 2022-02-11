@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
         justifyContent: 'center',
         alignItems: 'center',
         margin: '0 auto',
-        backgroundColor: '#293836',
+        backgroundColor: '#4f9384',
         height: 640,
         width: 430,
         borderRadius: '8px'
@@ -27,15 +27,23 @@ const useStyles = makeStyles(theme => ({
         width: '345px',
         minHeight: '42px',
         borderRadius: '8px',
-        lineHeight: '10px',
-        marginBottom: '4px'
+        lineHeight: '8px',
+        marginBottom: '4px',
 
     },
     label: {
+        fontSize: '0.9em',
         display: 'inherit',
         textAlign: 'left',
         textIndent: '1em'
-    }
+    },
+    error: {
+        color: '#bb2458',
+        textAlign: 'left',
+        textIndent: '0.9em',
+        fontSize: '0.8em',
+    },
+
 }))
 
 const Form = () => {
@@ -57,31 +65,31 @@ const Form = () => {
             <h1>React-Hook-Form</h1>
             <div className={classes.root}>
                 <form className={classes.form} onSubmit={handleSubmit(submit)}>
-                    <Box sx={{mb: 6}}>
-                        <label className={classes.label}>FirstName</label>
+                    <Box sx={{mb: 9, maxHeight: '25px'}}>
+                        <label className={classes.label}>Ім'я</label>
                         <input className={classes.input}
                                {...register('firstName', {
-                                   required: 'Поле обязательно для заполнения',
-                                   minLength: {
-                                       value: 10,
-                                       message: 'min количество символов 10 '
+                                   required: 'Заповніть поле',
+                                   maxLength: {
+                                       value: 15,
+                                       message: 'максимальна кіл-ть. симвовів 15'
                                    }
                                })}
                         />
-                        <div>{errors?.firstName && <span>{errors?.firstName?.message || 'Error!'}</span>}</div>
+                        <div className={classes.error}>{errors?.firstName && <span>{errors?.firstName?.message || 'Error!'}</span>}</div>
                     </Box>
-                    <Box>
-                        <label className={classes.label}>LastName</label>
+                    <Box sx={{maxHeight: '25px'}}>
+                        <label className={classes.label}>Прізвище</label>
                         <input className={classes.input}
                                {...register('lastName', {
-                                   required: 'Поле обязательно для заполнения',
-                                   minLength: {
-                                       value: 10,
-                                       message: 'min количество символов 10 '
+                                   required: 'Заповніть поле',
+                                   maxLength: {
+                                       value: 15,
+                                       message: 'максимальна кіл-ть. симвовів 15'
                                    }
                                })}
                         />
-                        <div>{errors?.lastName && <span>{errors?.lastName?.message || 'Error!'}</span>}</div>
+                        <div className={classes.error}>{errors?.lastName && <span>{errors?.lastName?.message || 'Error!'}</span>}</div>
                     </Box>
                     <input type='submit'/>
                 </form>
