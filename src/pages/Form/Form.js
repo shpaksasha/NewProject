@@ -78,7 +78,7 @@ const Form = () => {
                         />
                         <div className={classes.error}>{errors?.firstName && <span>{errors?.firstName?.message || 'Error!'}</span>}</div>
                     </Box>
-                    <Box sx={{maxHeight: '25px'}}>
+                    <Box sx={{mb: 9, maxHeight: '25px'}}>
                         <label className={classes.label}>Прізвище</label>
                         <input className={classes.input}
                                {...register('lastName', {
@@ -90,6 +90,19 @@ const Form = () => {
                                })}
                         />
                         <div className={classes.error}>{errors?.lastName && <span>{errors?.lastName?.message || 'Error!'}</span>}</div>
+                    </Box>
+                    <Box sx={{maxHeight: '25px'}}>
+                        <label className={classes.label}>Телефон</label>
+                        <input className={classes.input}
+                               {...register('telephone', {
+                                   required: 'Введіть номер телефону',
+                                   maxLength: {
+                                       value: 10,
+                                       message: 'не вірний телефон'
+                                   }
+                               })}
+                        />
+                        <div className={classes.error}>{errors?.telephone && <span>{errors?.telephone?.message || 'Error!'}</span>}</div>
                     </Box>
                     <input type='submit'/>
                 </form>
