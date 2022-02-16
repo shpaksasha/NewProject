@@ -72,3 +72,4 @@ typings/
 # dotenv environment variables file
 .env
 .idea
+.env.local
