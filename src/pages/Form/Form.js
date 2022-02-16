@@ -2,6 +2,7 @@ import React from 'react';
 import {useForm} from "react-hook-form";
 import {makeStyles} from "@mui/styles";
 import Box from "@mui/material/Box";
+// import {db} from "firebase/database";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -64,7 +65,7 @@ const useStyles = makeStyles(theme => ({
 
 const Form = () => {
     const classes = useStyles()
-
+// const [authorization, setAuth] = useState({})
 
     const {
         register,
@@ -73,11 +74,42 @@ const Form = () => {
         reset
     } = useForm({mode: 'onBlur'})
 
+    // const updateInput = e => {
+    //     setAuth({
+    //         ...authorization,
+    //         [e.target.name]: e.target.value,
+    //     })
+    //     // console.log(authorization)
+    //     // console.log(e.target.name)
+    // }
+    //
+    // const submit = event => {
+    //     event.preventDefault()
+    //     sendEmail()
+    //     setAuth({
+    //         name: '',
+    //         lastname: '',
+    //         telephone: '',
+    //     })
+    // }
+    //
+    //     const sendEmail = () => {
+    //         db.collection('form').add({
+    //             name: authorization.name,
+    //             lastname: authorization.lastname,
+    //             telephone: authorization.telephone,
+    //             time: new Date(),
+    //         })
+    //             .catch(error => {
+    //                 console.log(error)
+    //             })
+    //     }
+
+
     const submit = (data) => {
         alert(JSON.stringify(data))
         reset()
     }
-
     return (
         <>
             <h1 className={classes.hook}>React-Hook-Form</h1>
@@ -85,7 +117,7 @@ const Form = () => {
                 <form className={classes.form} onSubmit={handleSubmit(submit)}>
                     <Box sx={{mb: 9, maxHeight: '25px'}}>
                         <label className={classes.label}>Ім'я</label>
-                        <input className={classes.input}
+                        <input className={classes.input} type='text' name='name'
                                {...register('firstName', {
                                    required: 'Заповніть поле',
                                    maxLength: {
@@ -99,7 +131,7 @@ const Form = () => {
                     </Box>
                     <Box sx={{mb: 9, maxHeight: '25px'}}>
                         <label className={classes.label}>Прізвище</label>
-                        <input className={classes.input}
+                        <input className={classes.input} type='text' name='name'
                                {...register('lastName', {
                                    required: 'Заповніть поле',
                                    maxLength: {
@@ -113,7 +145,7 @@ const Form = () => {
                     </Box>
                     <Box sx={{maxHeight: '25px'}}>
                         <label className={classes.label}>Телефон</label>
-                        <input className={classes.input}
+                        <input className={classes.input} type='tel' name='telephone'
                                {...register('telephone', {
                                    required: 'Введіть номер телефону',
                                    maxLength: {
