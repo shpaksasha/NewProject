@@ -2,7 +2,6 @@ import React from 'react';
 import {useForm} from "react-hook-form";
 import {makeStyles} from "@mui/styles";
 import Box from "@mui/material/Box";
-// import {db} from "firebase/database";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -117,7 +116,7 @@ const Form = () => {
                 <form className={classes.form} onSubmit={handleSubmit(submit)}>
                     <Box sx={{mb: 9, maxHeight: '25px'}}>
                         <label className={classes.label}>Ім'я</label>
-                        <input className={classes.input} type='text' name='name'
+                        <input className={classes.input}
                                {...register('firstName', {
                                    required: 'Заповніть поле',
                                    maxLength: {
@@ -131,7 +130,7 @@ const Form = () => {
                     </Box>
                     <Box sx={{mb: 9, maxHeight: '25px'}}>
                         <label className={classes.label}>Прізвище</label>
-                        <input className={classes.input} type='text' name='name'
+                        <input className={classes.input}
                                {...register('lastName', {
                                    required: 'Заповніть поле',
                                    maxLength: {
@@ -145,7 +144,7 @@ const Form = () => {
                     </Box>
                     <Box sx={{maxHeight: '25px'}}>
                         <label className={classes.label}>Телефон</label>
-                        <input className={classes.input} type='tel' name='telephone'
+                        <input className={classes.input}
                                {...register('telephone', {
                                    required: 'Введіть номер телефону',
                                    maxLength: {
