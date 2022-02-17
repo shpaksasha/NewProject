@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import {useForm} from "react-hook-form";
 import {makeStyles} from "@mui/styles";
 import Box from "@mui/material/Box";
-import {getDatabase, ref, set} from "firebase/database";
+import { getDatabase, ref, set } from "firebase/database";
+import {app} from "../../firebase";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -66,26 +67,26 @@ const useStyles = makeStyles(theme => ({
 const Form = () => {
 
     const classes = useStyles()
-    const db = getDatabase();
+    const db = getDatabase(app);
     console.log(db)
 
     const {
         register,
         formState: {errors},
         handleSubmit,
-        reset
+        // reset
     } = useForm({mode: 'onBlur'})
 
     const [authorization, setAuth] = useState({})
 
-    const sendEmail = (userId) => {
-        set(ref(db, 'users/' + userId), {
+    const sendEmail = () => {
+        set(ref(db, 'users'), {
             name: authorization.name,
             lastname: authorization.lastname,
             telephone: authorization.telephone,
             time: new Date(),
-        }).then(error => {
-            console.log(errors)
+        }).then((result) => {
+            console.log(result.autorization)
         });
     }
 
@@ -94,8 +95,6 @@ const Form = () => {
             ...authorization,
             [event.target.name]: event.target.value,
         })
-        // console.log(authorization)
-        // console.log(e.target.name)
     }
 
     const Submit = () => {
@@ -132,7 +131,7 @@ const Form = () => {
                     </Box>
                     <Box sx={{mb: 9, maxHeight: '25px'}}>
                         <label className={classes.label}>Прізвище</label>
-                        <input className={classes.input} type='text' name='name' value={authorization.lastname} onChange={updateInput}
+                        <input className={classes.input} type='text' name='lastname' value={authorization.lastname} onChange={updateInput}
                                {...register('lastName', {
                                    required: 'Заповніть поле',
                                    maxLength: {
