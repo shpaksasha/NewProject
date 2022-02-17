@@ -106,8 +106,8 @@ const Header = () => {
                     </NavLink>
                 </Typography>
                 <Typography>
-                    <NavLink className={({isActive}) => (isActive ? classes.linkActive : classes.link)} to='/weather'>
-                        FAQ
+                    <NavLink className={({isActive}) => (isActive ? classes.linkActive : classes.link)} to='/article'>
+                        Search
                     </NavLink>
                 </Typography>
             </Toolbar>

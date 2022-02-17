@@ -1,6 +1,4 @@
 import {initializeApp} from "firebase/app";
-// import {getDatabase} from "firebase/database";
-
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_SECRET_CODE_1,
@@ -12,4 +10,3 @@ const firebaseConfig = {
 };
 
 export const app = initializeApp(firebaseConfig)
-// const database = getDatabase(app);

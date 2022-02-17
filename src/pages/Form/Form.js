@@ -1,9 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useForm} from "react-hook-form";
 import {makeStyles} from "@mui/styles";
 import Box from "@mui/material/Box";
-import { getDatabase, ref, set } from "firebase/database";
-import {app} from "../../firebase";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -67,49 +65,47 @@ const useStyles = makeStyles(theme => ({
 const Form = () => {
 
     const classes = useStyles()
-    const db = getDatabase(app);
-    console.log(db)
+    // const db = getDatabase(app);
+    // console.log(db)
 
     const {
         register,
         formState: {errors},
         handleSubmit,
-        // reset
+        reset
     } = useForm({mode: 'onBlur'})
 
-    const [authorization, setAuth] = useState({})
-
-    const sendEmail = () => {
-        set(ref(db, 'users'), {
-            name: authorization.name,
-            lastname: authorization.lastname,
-            telephone: authorization.telephone,
-            time: new Date(),
-        }).then((result) => {
-            console.log(result.autorization)
-        });
-    }
-
-    const updateInput = event => {
-        setAuth({
-            ...authorization,
-            [event.target.name]: event.target.value,
-        })
-    }
-
-    const Submit = () => {
-        sendEmail()
-        setAuth({
-            name: '',
-            lastname: '',
-            telephone: '',
-        })
-    }
-
-    // const submit = (data) => {
-    //     alert(JSON.stringify(data))
-    //     reset()
+    // const [authorization, setAuth] = useState({})
+    //
+    // const sendEmail = () => {
+    //     set(ref(db, 'users'), {
+    //         name: authorization.name,
+    //         lastname: authorization.lastname,
+    //         telephone: authorization.telephone,
+    //         time: new Date(),
+    //     });
     // }
+
+    // const updateInput = event => {
+    //     setAuth({
+    //         ...authorization,
+    //         [event.target.name]: event.target.value,
+    //     })
+    // }
+
+    // const Submit = () => {
+    //     sendEmail()
+    //     setAuth({
+    //         name: '',
+    //         lastname: '',
+    //         telephone: '',
+    //     })
+    // }
+
+    const Submit = (data) => {
+        alert(JSON.stringify(data))
+        reset()
+    }
     return (
         <>
             <h1 className={classes.hook}>React-Hook-Form</h1>
@@ -117,7 +113,7 @@ const Form = () => {
                 <form className={classes.form} onSubmit={handleSubmit(Submit)}>
                     <Box sx={{mb: 9, maxHeight: '25px'}}>
                         <label className={classes.label}>Ім'я</label>
-                        <input className={classes.input} type='text' name='name' value={authorization.name} onChange={updateInput}
+                        <input className={classes.input} type='text' name='name'
                                {...register('firstName', {
                                    required: 'Заповніть поле',
                                    maxLength: {
@@ -131,7 +127,7 @@ const Form = () => {
                     </Box>
                     <Box sx={{mb: 9, maxHeight: '25px'}}>
                         <label className={classes.label}>Прізвище</label>
-                        <input className={classes.input} type='text' name='lastname' value={authorization.lastname} onChange={updateInput}
+                        <input className={classes.input} type='text' name='lastname'
                                {...register('lastName', {
                                    required: 'Заповніть поле',
                                    maxLength: {
@@ -145,7 +141,7 @@ const Form = () => {
                     </Box>
                     <Box sx={{maxHeight: '25px'}}>
                         <label className={classes.label}>Телефон</label>
-                        <input className={classes.input} type='tel' name='telephone' value={authorization.telephone} onChange={updateInput}
+                        <input className={classes.input} type='tel' name='telephone'
                                {...register('telephone', {
                                    required: 'Введіть номер телефону',
                                    maxLength: {
