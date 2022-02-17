@@ -65,7 +65,7 @@ const Header = () => {
 
     const scrollFunction = () => {
         setOffset(window.scrollY)
-        console.log(isOffset)
+        // console.log(isOffset)
     }
 
     useEffect(() => {

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useForm} from "react-hook-form";
 import {makeStyles} from "@mui/styles";
 import Box from "@mui/material/Box";
+import {getDatabase, ref, set} from "firebase/database";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -63,8 +64,11 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const Form = () => {
+
+
     const classes = useStyles()
-// const [authorization, setAuth] = useState({})
+    const db = getDatabase();
+    console.log(db)
 
     const {
         register,
@@ -73,50 +77,50 @@ const Form = () => {
         reset
     } = useForm({mode: 'onBlur'})
 
-    // const updateInput = e => {
-    //     setAuth({
-    //         ...authorization,
-    //         [e.target.name]: e.target.value,
-    //     })
-    //     // console.log(authorization)
-    //     // console.log(e.target.name)
-    // }
-    //
-    // const submit = event => {
-    //     event.preventDefault()
-    //     sendEmail()
-    //     setAuth({
-    //         name: '',
-    //         lastname: '',
-    //         telephone: '',
-    //     })
-    // }
-    //
-    //     const sendEmail = () => {
-    //         db.collection('form').add({
-    //             name: authorization.name,
-    //             lastname: authorization.lastname,
-    //             telephone: authorization.telephone,
-    //             time: new Date(),
-    //         })
-    //             .catch(error => {
-    //                 console.log(error)
-    //             })
-    //     }
+    const [authorization, setAuth] = useState({})
 
 
-    const submit = (data) => {
-        alert(JSON.stringify(data))
-        reset()
+    const sendEmail = (userId) => {
+        set(ref(db, 'users/' + userId), {
+            name: authorization.name,
+            lastname: authorization.lastname,
+            telephone: authorization.telephone,
+            time: new Date(),
+        }).then(error => {
+            console.log(errors)
+        });
     }
+
+    const updateInput = event => {
+        setAuth({
+            ...authorization,
+            [event.target.name]: event.target.value,
+        })
+        // console.log(authorization)
+        // console.log(e.target.name)
+    }
+
+    const Submit = () => {
+        sendEmail()
+        setAuth({
+            name: '',
+            lastname: '',
+            telephone: '',
+        })
+    }
+
+    // const submit = (data) => {
+    //     alert(JSON.stringify(data))
+    //     reset()
+    // }
     return (
         <>
             <h1 className={classes.hook}>React-Hook-Form</h1>
             <div className={classes.root}>
-                <form className={classes.form} onSubmit={handleSubmit(submit)}>
+                <form className={classes.form} onSubmit={handleSubmit(Submit)}>
                     <Box sx={{mb: 9, maxHeight: '25px'}}>
                         <label className={classes.label}>Ім'я</label>
-                        <input className={classes.input}
+                        <input className={classes.input} type='text' name='name' value={authorization.name} onChange={updateInput}
                                {...register('firstName', {
                                    required: 'Заповніть поле',
                                    maxLength: {
@@ -130,7 +134,7 @@ const Form = () => {
                     </Box>
                     <Box sx={{mb: 9, maxHeight: '25px'}}>
                         <label className={classes.label}>Прізвище</label>
-                        <input className={classes.input}
+                        <input className={classes.input} type='text' name='name' value={authorization.lastname} onChange={updateInput}
                                {...register('lastName', {
                                    required: 'Заповніть поле',
                                    maxLength: {
@@ -144,7 +148,7 @@ const Form = () => {
                     </Box>
                     <Box sx={{maxHeight: '25px'}}>
                         <label className={classes.label}>Телефон</label>
-                        <input className={classes.input}
+                        <input className={classes.input} type='tel' name='telephone' value={authorization.telephone} onChange={updateInput}
                                {...register('telephone', {
                                    required: 'Введіть номер телефону',
                                    maxLength: {
@@ -153,7 +157,8 @@ const Form = () => {
                                    }
                                })}
                         />
-                        <div className={classes.error}>{errors?.telephone && <span>{errors?.telephone?.message || 'Error!'}</span>}</div>
+                        <div className={classes.error}>{errors?.telephone &&
+                            <span>{errors?.telephone?.message || 'Error!'}</span>}</div>
                     </Box>
                     <Box sx={{mt: 14}}>
                         <button className={classes.button} type='submit'>Відправити</button>
