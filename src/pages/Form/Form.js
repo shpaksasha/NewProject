@@ -65,7 +65,6 @@ const useStyles = makeStyles(theme => ({
 
 const Form = () => {
 
-
     const classes = useStyles()
     const db = getDatabase();
     console.log(db)
@@ -78,7 +77,6 @@ const Form = () => {
     } = useForm({mode: 'onBlur'})
 
     const [authorization, setAuth] = useState({})
-
 
     const sendEmail = (userId) => {
         set(ref(db, 'users/' + userId), {
