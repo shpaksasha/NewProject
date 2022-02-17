@@ -39,7 +39,7 @@ const Article = () => {
                             count={pageQty}
                             page={page}
                             onChange={(_, num) => setPage(num)}
-                            sx={{margin:'50px auto 25px'}}
+                            sx={{margin:'52px auto 25px'}}
                             color='secondary'
                         />
                     </Grid>
@@ -47,9 +47,9 @@ const Article = () => {
                 {
                     post.map(item => (
                         <Grid item md={6}>
-                            <Link key={item.objectId} href={item.url} target='__blank'
+                            <Link href={item.url} key={item.objectId} target='__blank'
                                   sx={{textDecoration: 'none', color: 'black', fontSize: '14px'}}>
-                                {item.title }
+                                {item.title}
                             </Link>
                         </Grid>
                     ))
