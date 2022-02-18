@@ -1,23 +1,27 @@
 import React, {useState} from 'react';
-import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import {Button} from "@mui/material";
+import {Button, DialogActions, DialogContent} from "@mui/material";
 import {makeStyles} from "@mui/styles";
 
 const useStyles = makeStyles(theme => ({
     box: {
-        margin: 30,
-        justifyContent: 'space-around',
-        display: 'flex',
-        padding: '0px 10px'
+        boxSizing: 'border-box',
+        height: '125px',
+        maxWidth: '590px',
+        display: 'block',
     },
     field: {
-        width: 400,
+        display: 'block',
+       textAlign: 'center',
+        width: 250,
     },
     button: {
-        maxHeight: 37,
-        fontFamily: 'Roboto Condensed',
-    }
+        display: 'block',
+        position: 'absolute',
+        left: '50%',
+        transform: 'translate(-50%, 0)'
+    },
+
 }))
 
 const PostForm = ({create}) => {
@@ -41,32 +45,33 @@ const PostForm = ({create}) => {
     }
 
     return (
-        <div>
-            <form>
-                <Box className={classes.box}>
-                    <TextField
-                        value={title}
-                        onChange={event => setTitle(event.target.value)}
-                        helperText='Введите название'
-                        id='1'
-                        label='Название'
-                        className={classes.field}
-                        size='small'
-                    />
-                    <TextField
-                        value={denotation}
-                        onChange={event => setDenotation(event.target.value)}
-                        helperText='Введите описание'
-                        id='2'
-                        label='Описание'
-                        className={classes.field}
-                        size='small'
-                    />
-                    <Button onClick={addNewPost} className={classes.button} size='small' variant='contained'
-                            color='secondary'>Создать пост</Button>
-                </Box>
-            </form>
-        </div>
+        <form>
+            <DialogContent className={classes.box}>
+                <TextField
+                    value={title}
+                    onChange={event => setTitle(event.target.value)}
+                    helperText='Введіть назву'
+                    id='1'
+                    label='Назва'
+                    className={classes.field}
+                    size='small'
+                    sx={{mr: 2}}
+                />
+                <TextField
+                    value={denotation}
+                    onChange={event => setDenotation(event.target.value)}
+                    helperText='Введіть опис'
+                    id='2'
+                    label='Опис'
+                    className={classes.field}
+                    size='small'
+                />
+            </DialogContent>
+            <DialogActions className={classes.button}>
+                <Button onClick={addNewPost} size='small' variant='contained'
+                        color='secondary'>Додати</Button>
+            </DialogActions>
+        </form>
     );
 };
 

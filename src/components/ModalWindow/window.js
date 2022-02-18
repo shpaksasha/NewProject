@@ -3,8 +3,6 @@ import {makeStyles} from "@mui/styles";
 
 const useStyles = makeStyles(theme => ({
     mainModal: {
-        // height: '100vh',
-        // width: '100vw',
         zIndex: 1,
         display: 'none',
         position: 'fixed',
@@ -13,7 +11,7 @@ const useStyles = makeStyles(theme => ({
         left: 0,
         right: 0,
         backgroundColor: 'rgba(0, 0, 0, 0.7)',
-        transition: '1s',
+        transition: '2s',
         // backgroundColor: 'black',
         // pointerEvents: 'none'
     },

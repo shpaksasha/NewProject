@@ -7,7 +7,6 @@ export const useStyles = makeStyles(theme => ({
         marginTop: '17px',
         border: '2px solid orange',
     },
-
     description: {
         flexGrow: 1,
         maxWidth: '900px',
@@ -21,5 +20,4 @@ export const useStyles = makeStyles(theme => ({
         right: 35,
         bottom: 29
     }
-
 }))
