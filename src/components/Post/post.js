@@ -8,8 +8,8 @@ const Post = (props) => {
     return (
         <Card className={classes.root}>
             <CardContent className={classes.description}>
-                <Typography component='div' sx={{fontSize: '17px'}}>{props.number}. {props.post.title}</Typography>
-                <Typography>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At atque hic in maxime minima nulla porro
+                <Typography sx={{fontSize: '16px', fontWeight: 600}}>{props.number}. {props.post.title}</Typography>
+                <Typography sx={{mt: 1, fontSize: '15px'}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At atque hic in maxime minima nulla porro
                     quibusdam, recusandae reprehenderit veniam?
                     <Typography>{props.post.denotation}</Typography>
                 </Typography>
