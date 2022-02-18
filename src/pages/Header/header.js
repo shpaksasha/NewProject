@@ -8,6 +8,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 const useStyles = makeStyles(theme => ({
     root: {
         boxSizing: 'border-box',
+        position: 'sticky',
         display: 'flex',
         width: '100%',
         flexGrow: 1,
@@ -77,7 +78,7 @@ const Header = () => {
 
     const classes = useStyles();
     return (
-        <AppBar position="static" className={`${classes.root} ${isOffset >0 ? classes.shadow : null}`}>
+        <AppBar  className={`${classes.root} ${isOffset >0 ? classes.shadow : null}`}>
             <Toolbar className={classes.appBar}>
                 <NavLink className={classes.navLink} to='/'>
                     <Typography className={classes.icon}>
