@@ -16,10 +16,19 @@ const useStyles = makeStyles(theme => ({
         width: 250,
     },
     button: {
+        border: 'none',
+        borderRadius: '4px',
+        color: '#ffffff',
+        backgroundColor: '#0c96cf',
+        padding: '11px 32px',
+        cursor: 'pointer',
         display: 'block',
         position: 'absolute',
         left: '50%',
-        transform: 'translate(-50%, 0)'
+        transform: 'translate(-50%, 0)',
+        '&:hover': {
+            backgroundColor: '#0881b8'
+        }
     },
 
 }))
@@ -67,10 +76,7 @@ const PostForm = ({create}) => {
                     size='small'
                 />
             </DialogContent>
-            <DialogActions className={classes.button}>
-                <Button onClick={addNewPost} size='small' variant='contained'
-                        color='secondary'>Додати</Button>
-            </DialogActions>
+                <button className={classes.button} onClick={addNewPost}>Додати</button>
         </form>
     );
 };
