@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import TextField from "@mui/material/TextField";
-import {Button, DialogActions, DialogContent} from "@mui/material";
+import {TextField, DialogContent} from "@mui/material";
 import {makeStyles} from "@mui/styles";
 
 const useStyles = makeStyles(theme => ({
@@ -29,8 +28,7 @@ const useStyles = makeStyles(theme => ({
         '&:hover': {
             backgroundColor: '#0881b8'
         }
-    },
-
+    }
 }))
 
 const PostForm = ({create}) => {

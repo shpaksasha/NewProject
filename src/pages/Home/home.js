@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Post from '../../components/Post/post';
-import PostForm from '../../components/FormPost/postForm';
+import PostForm from '../../components/PostForm/postForm';
 import {makeStyles} from "@mui/styles";
 import {Button, CircularProgress} from '@mui/material';
 import ModalWindow from '../../components/ModalWindow/window';
@@ -66,7 +66,7 @@ const Home = () => {
             <Search/>
             <div className={classes.mainButton}>
                 {/*<Button onClick={fetchPost} variant="contained" endIcon={<GetAppIcon/>}>Get Post</Button>*/}
-                <Button variant='contained' onClick={() => setModal(true)}>Создать пост</Button></div>
+                <Button variant='contained' onClick={() => setModal(true)}>Створити пост</Button></div>
 
 
             <ModalWindow visible={modal} setVisible={setModal}>
@@ -79,7 +79,7 @@ const Home = () => {
                     {posts.length !== 0
                         ? <div>
                             <TransitionGroup>
-                                <h2 className={classes.heading}>Список постов</h2>
+                                <h2 className={classes.heading}>Список постів</h2>
                                 {posts.map((item, index) =>
                                     <CSSTransition
                                         key={item.id}
@@ -91,7 +91,7 @@ const Home = () => {
                                 )}
                             </TransitionGroup>
                         </div>
-                        : <h2 className={classes.heading}>Посты не найдены</h2>
+                        : <h2 className={classes.heading}>Пости не знайдені</h2>
                     }
                 </div>
             }
