@@ -45,7 +45,7 @@ const Home = () => {
 
     async function fetchPost() {
         setLoading(true)
-            const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=20')
+            const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=30')
             // console.log(response.data)
             setPost(response.data)
             setLoading(false)
