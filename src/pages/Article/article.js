@@ -11,6 +11,7 @@ const Article = () => {
     const [pageQty, setPageQty] = useState(0)
 
     useEffect(() => {
+        // getPost()
         axios.get(Base_Url + `query=${query}&page=${page - 1}`).then(({data}) => {
             console.log(data)
             setPost(data.hits)
@@ -21,6 +22,12 @@ const Article = () => {
             }
         })
     }, [query, page])
+
+    // async function getPost() {
+    //     const response = await axios.get(Base_Url + `query=${query}&page=${page - 1}`)
+    //     setPost(response.data.hits)
+    //     setPageQty(response.data.nbPages)
+    // }
 
     return (
         <Container sx={{mt: '30px'}}>
